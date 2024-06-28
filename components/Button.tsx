@@ -14,9 +14,11 @@ type ButtonProps = PressableProps & {
 };
 
 const Button = ({ buttonStyle, onPress, children, ...props }: ButtonProps) => {
+  const handleOnPress = () => {};
+
   return (
     <Pressable
-      onPress={onPress ?? onPress}
+      onPress={onPress ?? handleOnPress}
       style={[styles.button, buttonStyle]}
       {...props}
     >
