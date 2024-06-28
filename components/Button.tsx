@@ -1,10 +1,4 @@
-import {
-  Pressable,
-  type PressableProps,
-  StyleSheet,
-  Text,
-  StyleProp,
-} from "react-native";
+import { Pressable, type PressableProps, StyleSheet } from "react-native";
 import React from "react";
 import { StyleProps } from "react-native-reanimated";
 
