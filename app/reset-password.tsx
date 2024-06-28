@@ -50,7 +50,7 @@ const ResetPassword = () => {
 const styles = StyleSheet.create({
   container: {
     rowGap: 60,
-    justifyContent: "flex-start",
+    alignItems: "center",
     marginTop: 18,
   },
   text: {

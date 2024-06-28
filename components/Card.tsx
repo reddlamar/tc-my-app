@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import { MaterialIcons } from "@expo/vector-icons";
 import * as Progress from "react-native-progress";
 import { Colors } from "@/constants/Colors";
+import Rating from "./Rating";
 
 type CardProps = {
   imageSource: ImageURISource;
@@ -14,16 +15,6 @@ type CardProps = {
 
 const Card = (props: CardProps) => {
   const { imageSource, title, rating, author, progressPercentage } = props;
-
-  const getStars = useCallback(() => {
-    const stars = [];
-    for (let num = 0; num < rating; num++) {
-      stars.push(
-        <MaterialIcons key={num + 1} name="star" size={12} color="navy-blue" />
-      );
-    }
-    return stars;
-  }, [rating]);
 
   return (
     <View style={styles.view}>
@@ -38,7 +29,9 @@ const Card = (props: CardProps) => {
       <View style={styles.bottomContentView}>
         <View style={styles.titleView}>
           <Text>{title}</Text>
-          <View style={styles.starsView}>{getStars()}</View>
+          <View style={styles.starsView}>
+            <Rating rating={rating} />
+          </View>
         </View>
         <View style={styles.authorView}>
           <Text style={styles.text}>By {author}</Text>

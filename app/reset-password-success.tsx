@@ -36,7 +36,7 @@ export default ResetPasswordSuccess;
 
 const styles = StyleSheet.create({
   container: {
-    justifyContent: "flex-start",
+    alignItems: "center",
     rowGap: 12,
     backgroundColor: "#fff",
   },

@@ -10,3 +10,7 @@ export type ButtonProps = {
 export type ProgressCirclesProps = {
   appInfoScreens: AppInfo[];
 };
+
+export type RatingProps = {
+  rating: number;
+};

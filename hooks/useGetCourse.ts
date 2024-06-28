@@ -6,10 +6,7 @@ export const useGetCourse = (id: number) => {
 
   useEffect(() => {
     let foundCourse: Course | undefined;
-    if (typeof id === "string") {
-      foundCourse = courses.find((c) => c.id === id);
-    }
-
+    foundCourse = courses.find((c) => c.id === id);
     if (foundCourse) {
       setCourse(foundCourse);
     }

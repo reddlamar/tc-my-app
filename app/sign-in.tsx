@@ -56,6 +56,7 @@ export default SignIn;
 const styles = StyleSheet.create({
   view: {
     justifyContent: "flex-start",
+    alignItems: "center",
     rowGap: 9,
   },
   titleView: {

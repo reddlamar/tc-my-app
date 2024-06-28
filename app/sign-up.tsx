@@ -57,6 +57,7 @@ export default SignUp;
 const styles = StyleSheet.create({
   view: {
     rowGap: 9,
+    alignItems: "center",
   },
   inputView: {
     rowGap: 12,
