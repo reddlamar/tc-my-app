@@ -14,7 +14,6 @@ const HomeScreen = () => {
     return (
       <Link href={`/details/${item.id}`}>
         <Card
-          id={item.id}
           imageSource={item.image}
           title={item.title}
           rating={item.rating}

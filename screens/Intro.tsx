@@ -8,7 +8,7 @@ import Button from "@/components/Button";
 import Circle from "@/components/Circle";
 import { appInfo } from "@/database/AppInfo";
 import { AppInfo } from "@/types/AppInfoType";
-import { ButtonProps, ProgressCirclesProps } from "@/types/Props";
+import { ButtonProps, ProgressCirclesProps } from "@/types/PropsType";
 
 const SkipButton: React.FC<ButtonProps> = ({
   screenIndex,

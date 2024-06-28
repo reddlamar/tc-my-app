@@ -5,7 +5,6 @@ import * as Progress from "react-native-progress";
 import { Colors } from "@/constants/Colors";
 
 type CardProps = {
-  id: number;
   imageSource: ImageURISource;
   title: string;
   rating: number;
@@ -14,18 +13,20 @@ type CardProps = {
 };
 
 const Card = (props: CardProps) => {
-  const { id, imageSource, title, rating, author, progressPercentage } = props;
+  const { imageSource, title, rating, author, progressPercentage } = props;
 
   const getStars = useCallback(() => {
     const stars = [];
     for (let num = 0; num < rating; num++) {
-      stars.push(<MaterialIcons name="star" size={12} color="navy-blue" />);
+      stars.push(
+        <MaterialIcons key={num + 1} name="star" size={12} color="navy-blue" />
+      );
     }
     return stars;
   }, [rating]);
 
   return (
-    <View style={styles.view} key={id}>
+    <View style={styles.view}>
       <View style={styles.imageView}>
         <Image
           source={imageSource}
