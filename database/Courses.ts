@@ -21,6 +21,7 @@ export const courses: Course[] = [
     ],
     lessons: [
       {
+        id: 1,
         title: "Chapter 1 : What is Graphics Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -32,6 +33,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 2,
         title: "Chapter 2 : What is Logo Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -43,6 +45,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 3,
         title: "Chapter 3 : What is Poster Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -54,6 +57,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 4,
         title: "Chapter 4 : What is Picture Editing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -67,19 +71,25 @@ export const courses: Course[] = [
     ],
     reviews: [
       {
+        id: 1,
         userName: "Muhammad Arsalan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 2,
         userName: "Usman Diljan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 3,
         userName: "Yasir Lashari",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
     ],
   },
@@ -103,6 +113,7 @@ export const courses: Course[] = [
     ],
     lessons: [
       {
+        id: 1,
         title: "Chapter 1 : What is Graphics Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -114,6 +125,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 2,
         title: "Chapter 2 : What is Logo Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -125,6 +137,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 3,
         title: "Chapter 3 : What is Poster Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -136,6 +149,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 4,
         title: "Chapter 4 : What is Picture Editing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -149,19 +163,25 @@ export const courses: Course[] = [
     ],
     reviews: [
       {
+        id: 1,
         userName: "Muhammad Arsalan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 2,
         userName: "Usman Diljan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 3,
         userName: "Yasir Lashari",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
     ],
   },
@@ -185,6 +205,7 @@ export const courses: Course[] = [
     ],
     lessons: [
       {
+        id: 1,
         title: "Chapter 1 : What is Graphics Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -196,6 +217,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 2,
         title: "Chapter 2 : What is Logo Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -207,6 +229,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 3,
         title: "Chapter 3 : What is Poster Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -218,6 +241,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 4,
         title: "Chapter 4 : What is Picture Editing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -231,19 +255,25 @@ export const courses: Course[] = [
     ],
     reviews: [
       {
+        id: 1,
         userName: "Muhammad Arsalan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 2,
         userName: "Usman Diljan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 3,
         userName: "Yasir Lashari",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
     ],
   },
@@ -267,6 +297,7 @@ export const courses: Course[] = [
     ],
     lessons: [
       {
+        id: 1,
         title: "Chapter 1 : What is Graphics Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -278,6 +309,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 2,
         title: "Chapter 2 : What is Logo Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -289,6 +321,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 3,
         title: "Chapter 3 : What is Poster Designing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -300,6 +333,7 @@ export const courses: Course[] = [
         ],
       },
       {
+        id: 4,
         title: "Chapter 4 : What is Picture Editing?",
         videos: [
           "Lorem ipsum dolor sit amet consectetur.",
@@ -313,19 +347,25 @@ export const courses: Course[] = [
     ],
     reviews: [
       {
+        id: 1,
         userName: "Muhammad Arsalan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 2,
         userName: "Usman Diljan",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
       {
+        id: 3,
         userName: "Yasir Lashari",
         userType: "Student",
         text: "Lorem ipsum dolor sit amet consectetur. Euismod turpis tortor sollicitudin et. Quam tempor tincidunt a nunc feugiat semper tristique id.",
+        rating: 5,
       },
     ],
   },

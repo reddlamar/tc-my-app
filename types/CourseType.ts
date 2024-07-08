@@ -15,13 +15,16 @@ export type Course = {
 };
 
 export type Chapter = {
+  id: number;
   title: string;
   videos: string[];
   notes: string[];
 };
 
 export type Review = {
+  id: number;
   userName: string;
   userType: string;
   text: string;
+  rating: number;
 };

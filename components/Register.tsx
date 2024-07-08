@@ -2,7 +2,8 @@ import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { FontAwesome5 } from "@expo/vector-icons";
-import Button from "./Button";
+import PrimaryButton from "./PrimaryButton";
+import ButtonLink from "./ButtonLink";
 import { Colors } from "@/constants/Colors";
 import { ThemedText } from "./ThemedText";
 
@@ -49,11 +50,9 @@ const Register = (props: RegisterProps) => {
       </View>
       {children}
       <View>
-        <Button buttonStyle={styles.button}>
-          <Link href={"/(tabs)"}>
-            <Text style={styles.buttonText}>{registerText}</Text>
-          </Link>
-        </Button>
+        <ButtonLink style={styles.button} href={"/(tabs)"}>
+          <Text style={styles.buttonText}>{registerText}</Text>
+        </ButtonLink>
       </View>
       <View style={styles.dividerView}>
         <View style={styles.horizontalRule}></View>
@@ -61,8 +60,9 @@ const Register = (props: RegisterProps) => {
         <View style={styles.horizontalRule}></View>
       </View>
       <View style={styles.socialSignInView}>
-        <Button
-          buttonStyle={{
+        <PrimaryButton
+          onPress={() => {}}
+          style={{
             ...styles.facebookButton,
             ...styles.button,
           }}
@@ -71,9 +71,10 @@ const Register = (props: RegisterProps) => {
           <Text style={[styles.buttonText, styles.socialButtonText]}>
             {`${socialRegisterText} with Facebook`}
           </Text>
-        </Button>
-        <Button
-          buttonStyle={{
+        </PrimaryButton>
+        <PrimaryButton
+          onPress={() => {}}
+          style={{
             ...styles.button,
             ...styles.googleButton,
           }}
@@ -92,7 +93,7 @@ const Register = (props: RegisterProps) => {
           >
             {`${socialRegisterText} with Google`}
           </Text>
-        </Button>
+        </PrimaryButton>
         <View style={styles.registerHereView}>
           <Text>{`${registerQuestionText} have an account?`}</Text>
           <Link href={registerHereHref}>

@@ -1,14 +1,14 @@
 import { StyleSheet, View, Image, Text } from "react-native";
-import { ReactElement, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import React from "react";
-import { Link } from "expo-router";
 import { ThemedText } from "@/components/ThemedText";
 import { Colors } from "@/constants/Colors";
-import Button from "@/components/Button";
+import PrimaryButton from "@/components/PrimaryButton";
 import Circle from "@/components/Circle";
 import { appInfo } from "@/database/AppInfo";
 import { AppInfo } from "@/types/AppInfoType";
 import { ButtonProps, ProgressCirclesProps } from "@/types/PropsType";
+import ButtonLink from "@/components/ButtonLink";
 
 const SkipButton: React.FC<ButtonProps> = ({
   screenIndex,
@@ -31,9 +31,9 @@ const SkipButton: React.FC<ButtonProps> = ({
   };
 
   return (
-    <Button style={styles.skipButton} onPress={handleOnPressSkip}>
+    <PrimaryButton style={styles.skipButton} onPress={handleOnPressSkip}>
       <Text style={styles.skipButtonText}>SKIP</Text>
-    </Button>
+    </PrimaryButton>
   );
 };
 
@@ -84,24 +84,20 @@ const RegisterButtons: React.FC<ButtonProps> = ({
   return (
     <View style={styles.buttonView}>
       {screenIndex.current < 4 ? (
-        <Button onPress={handleOnPressContinue}>
+        <PrimaryButton onPress={handleOnPressContinue}>
           <Text style={styles.buttonText}>{"CONTINUE"}</Text>
-        </Button>
+        </PrimaryButton>
       ) : (
         <>
-          <Button buttonStyle={styles.registerButton}>
-            <Link href="/sign-in" style={styles.buttonText}>
-              Sign In
-            </Link>
-          </Button>
-          <Button buttonStyle={[styles.registerButton, styles.signUpButton]}>
-            <Link
-              href="/sign-up"
-              style={[styles.buttonText, styles.signUpButtonText]}
-            >
-              Sign Up
-            </Link>
-          </Button>
+          <ButtonLink href="/sign-in" style={styles.registerButton}>
+            <Text style={styles.buttonText}>Sign In</Text>
+          </ButtonLink>
+          <ButtonLink
+            href="/sign-up"
+            style={[styles.registerButton, styles.signUpButton]}
+          >
+            <Text style={styles.signUpButtonText}>Sign Up</Text>
+          </ButtonLink>
         </>
       )}
     </View>
@@ -219,11 +215,14 @@ const styles = StyleSheet.create({
   },
   signUpButton: {
     backgroundColor: "#fff",
-    borderColor: "#000",
+    borderColor: Colors.light.tint,
     borderWidth: 1,
   },
   signUpButtonText: {
     color: "#000",
+    fontSize: 20,
+    fontWeight: 600,
+    lineHeight: 25.2,
   },
   buttonText: {
     fontSize: 20,

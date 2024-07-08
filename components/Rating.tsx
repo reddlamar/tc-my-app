@@ -4,7 +4,7 @@ import { RatingProps } from "@/types/PropsType";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 
-const Rating = ({ rating }: RatingProps) => {
+const Rating = ({ rating = 0 }: RatingProps) => {
   const renderStars = useCallback(() => {
     const stars = [];
     for (let num = 0; num < rating; num++) {

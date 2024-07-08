@@ -2,10 +2,9 @@ import { Text, View, StyleSheet } from "react-native";
 import React from "react";
 import Container from "@/components/Container";
 import PasswordInput from "@/components/PasswordInput";
-import Button from "@/components/Button";
 import { ThemedText } from "@/components/ThemedText";
 import { usePassword } from "@/hooks/usePassword";
-import { Link } from "expo-router";
+import ButtonLink from "@/components/ButtonLink";
 
 const ResetPassword = () => {
   const {
@@ -38,11 +37,9 @@ const ResetPassword = () => {
         hidePassword={hidePassword}
         onPressHidePassword={setHidePassword}
       />
-      <Button>
-        <Link href="/reset-password-success">
-          <Text style={styles.text}>Done</Text>
-        </Link>
-      </Button>
+      <ButtonLink href="/reset-password-success">
+        <Text style={styles.text}>Done</Text>
+      </ButtonLink>
     </Container>
   );
 };

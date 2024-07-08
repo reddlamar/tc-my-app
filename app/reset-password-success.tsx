@@ -3,7 +3,7 @@ import React from "react";
 import Container from "@/components/Container";
 import { ThemedText } from "@/components/ThemedText";
 import { Link } from "expo-router";
-import Button from "../components/Button";
+import PrimaryButton from "../components/PrimaryButton";
 
 const ResetPasswordSuccess = () => {
   return (
@@ -23,11 +23,11 @@ const ResetPasswordSuccess = () => {
           Lorem ipsum dolor sit amet consectetur.
         </Text>
       </View>
-      <Button buttonStyle={styles.button}>
+      <PrimaryButton style={styles.button} onPress={() => {}}>
         <Link href="/reset-password-success">
           <Text style={styles.text}>Done</Text>
         </Link>
-      </Button>
+      </PrimaryButton>
     </Container>
   );
 };
