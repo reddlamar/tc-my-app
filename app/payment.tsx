@@ -128,8 +128,9 @@ const styles = StyleSheet.create({
   },
   button: {
     width: "90%",
-    marginVertical: 15,
-    position: "relative",
+    marginBottom: 3,
+    marginTop: 24,
+    position: "absolute",
     bottom: 0,
   },
   buttonText: {
