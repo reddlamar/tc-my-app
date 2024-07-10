@@ -1,6 +1,5 @@
 import { StyleSheet, Text, View, Image, ImageURISource } from "react-native";
-import React, { useCallback } from "react";
-import { MaterialIcons } from "@expo/vector-icons";
+import React from "react";
 import * as Progress from "react-native-progress";
 import { Colors } from "@/constants/Colors";
 import Rating from "./Rating";

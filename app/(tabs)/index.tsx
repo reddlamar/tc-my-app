@@ -32,8 +32,12 @@ const HomeScreen = () => {
           <Text style={[styles.text, styles.userNameText]}>User</Text>
         </View>
         <View style={styles.topIconsView}>
-          <Octicons name="gear" size={24} color="lightgray" />
-          <Octicons name="bell-fill" size={24} color="lightgray" />
+          <Link href="/settings">
+            <Octicons name="gear" size={24} color="lightgray" />
+          </Link>
+          <Link href="/notifications">
+            <Octicons name="bell-fill" size={24} color="lightgray" />
+          </Link>
         </View>
       </View>
       <SearchBar />

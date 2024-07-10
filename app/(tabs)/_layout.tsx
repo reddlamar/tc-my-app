@@ -1,19 +1,25 @@
-import { Tabs } from "expo-router";
+import { Tabs, useNavigation } from "expo-router";
 import React from "react";
 
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Colors } from "@/constants/Colors";
 import { useColorScheme } from "@/hooks/useColorScheme";
+import { SafeAreaView, Text } from "react-native";
+import Ionicons from "@expo/vector-icons/Ionicons";
+import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
+import Header from "@/components/Header";
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
+  const navigation = useNavigation<NativeStackNavigatorProps>();
 
   return (
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
         headerShown: false,
+        tabBarShowLabel: false,
       }}
     >
       <Tabs.Screen
@@ -38,6 +44,8 @@ export default function TabLayout() {
               size={24}
             />
           ),
+          headerShown: true,
+          header: () => <Header title="My Courses" />,
         }}
       />
       <Tabs.Screen
@@ -50,6 +58,8 @@ export default function TabLayout() {
               size={24}
             />
           ),
+          headerShown: true,
+          header: () => <Header title="Inbox" />,
         }}
       />
       <Tabs.Screen
@@ -62,6 +72,8 @@ export default function TabLayout() {
               size={24}
             />
           ),
+          headerShown: true,
+          header: () => <Header title="Profile" />,
         }}
       />
     </Tabs>

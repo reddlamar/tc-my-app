@@ -1,12 +1,13 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ViewStyle } from "react-native";
 import React from "react";
 
 type ChipProps = {
   children: React.ReactNode;
+  style?: ViewStyle;
 };
 
-const Chip = ({ children }: ChipProps) => {
-  return <View style={styles.view}>{children}</View>;
+const Chip = ({ children, style }: ChipProps) => {
+  return <View style={[styles.view, style]}>{children}</View>;
 };
 
 export default Chip;
