@@ -4,6 +4,7 @@ import Container from "@/components/Container";
 import { ThemedText } from "@/components/ThemedText";
 import { Link } from "expo-router";
 import PrimaryButton from "../components/PrimaryButton";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const ResetPasswordSuccess = () => {
   return (
@@ -37,46 +38,46 @@ export default ResetPasswordSuccess;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    rowGap: 12,
+    rowGap: verticalScale(12),
     backgroundColor: "#fff",
   },
   image: {
-    width: 300,
-    height: 300,
+    width: horizontalScale(300),
+    height: verticalScale(300),
   },
   text: {
     color: "#fff",
-    fontSize: 20,
-    fontWeight: 600,
-    lineHeight: 25.2,
+    fontSize: horizontalScale(20),
+    fontWeight: "600",
+    lineHeight: verticalScale(25.2),
     textAlign: "center",
   },
   successExtraTextView: {
     backgroundColor: "#E5EAF4",
-    width: 336,
-    height: 62,
-    borderRadius: 10,
-    borderWidth: 1,
+    width: horizontalScale(336),
+    height: verticalScale(62),
+    borderRadius: horizontalScale(10),
+    borderWidth: horizontalScale(1),
     borderColor: "#C6C6C6",
-    padding: 12,
+    padding: horizontalScale(12),
     justifyContent: "center",
     alignItems: "center",
   },
   successText: {
-    fontSize: 14,
-    fontWeight: 600,
+    fontSize: horizontalScale(14),
+    fontWeight: "600",
     color: "#000",
     textAlign: "center",
   },
   successTextSmall: {
-    fontSize: 10,
-    fontWeight: 300,
+    fontSize: horizontalScale(10),
+    fontWeight: "300",
     color: "#8E8787",
   },
   button: {
-    width: 334,
-    height: 57,
-    borderRadius: 10,
-    marginTop: 30,
+    width: horizontalScale(334),
+    height: verticalScale(57),
+    borderRadius: horizontalScale(10),
+    marginTop: verticalScale(30),
   },
 });

@@ -1,4 +1,5 @@
 import { StyleSheet, ScrollView, View, SafeAreaView } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 import Container from "@/components/Container";
 import IntroScreen from "@/screens/Intro";
 
@@ -14,6 +15,6 @@ export default function MainIntroScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    gap: 8,
+    gap: moderateScale(8),
   },
 });

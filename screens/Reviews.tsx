@@ -6,6 +6,7 @@ import Rating from "@/components/Rating";
 import Container from "@/components/Container";
 import EnrollButton from "@/components/EnrollButton";
 import { CourseContext } from "@/context/CourseContext";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const Reviews = () => {
   const { course } = useContext(CourseContext);
@@ -35,11 +36,7 @@ const Reviews = () => {
       <FlatList
         data={course?.reviews}
         keyExtractor={(item) => `${item.id}`}
-        contentContainerStyle={{
-          rowGap: 9,
-          alignItems: "center",
-          paddingVertical: 15,
-        }}
+        contentContainerStyle={styles.flatList}
         renderItem={({ item }) => renderItem(item)}
       />
       <EnrollButton />
@@ -50,20 +47,29 @@ const Reviews = () => {
 export default Reviews;
 
 const styles = StyleSheet.create({
-  section: { padding: 9, rowGap: 9 },
   container: { flexDirection: "row", justifyContent: "space-between" },
+  flatList: {
+    rowGap: verticalScale(9),
+    alignItems: "center",
+    paddingVertical: verticalScale(15),
+  },
+  section: { padding: horizontalScale(9), rowGap: verticalScale(9) },
   topView: {
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 6,
+    columnGap: horizontalScale(6),
   },
   circleView: {
-    borderRadius: 50,
+    borderRadius: horizontalScale(50),
     backgroundColor: "#D9D9D9",
-    width: 47,
-    height: 47,
+    width: horizontalScale(47),
+    height: verticalScale(47),
   },
-  userName: { fontWeight: 600, fontSize: 12 },
-  userType: { fontWeight: 600, fontSize: 10, color: "#B7B0B0" },
+  userName: { fontWeight: "600", fontSize: horizontalScale(12) },
+  userType: {
+    fontWeight: "600",
+    fontSize: horizontalScale(10),
+    color: "#B7B0B0",
+  },
 });

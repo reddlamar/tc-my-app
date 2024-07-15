@@ -4,6 +4,12 @@ import { AntDesign } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
+import {
+  baseWidth,
+  windowWidth,
+  horizontalScale,
+  verticalScale,
+} from "@/constants/WindowDimensions";
 
 const CourseDetailsHero = () => {
   const navigation = useNavigation<NativeStackNavigatorProps>();
@@ -16,15 +22,20 @@ const CourseDetailsHero = () => {
       />
       <Ionicons
         name="arrow-back"
-        size={24}
+        size={horizontalScale(24)}
         color="#fff"
         style={styles.backButton}
         onPress={() => navigation.navigate("(tabs)")}
       />
-      <AntDesign name="play" size={45} color="#fff" style={styles.playButton} />
+      <AntDesign
+        name="play"
+        size={horizontalScale(45)}
+        color="#fff"
+        style={styles.playButton}
+      />
       <Ionicons
         name="bookmark"
-        size={24}
+        size={horizontalScale(24)}
         color="#fff"
         style={styles.bookMark}
       />
@@ -38,21 +49,21 @@ const styles = StyleSheet.create({
   videoView: {
     alignItems: "center",
     justifyContent: "flex-start",
-    backgroundColor: "blue",
-    height: 250,
+    height: verticalScale(250),
+    backgroundColor: "#000",
   },
   image: {
     width: "100%",
-    height: 250,
+    height: verticalScale(250),
     aspectRatio: 1,
-    resizeMode: "contain",
+    resizeMode: windowWidth > baseWidth ? "cover" : "contain",
     position: "absolute",
     top: 0,
   },
   backButton: {
     position: "absolute",
-    top: 3,
-    left: 3,
+    top: verticalScale(3),
+    left: horizontalScale(3),
   },
   playButton: {
     position: "absolute",
@@ -60,7 +71,7 @@ const styles = StyleSheet.create({
   },
   bookMark: {
     position: "absolute",
-    top: 3,
-    right: 3,
+    top: verticalScale(3),
+    right: horizontalScale(3),
   },
 });

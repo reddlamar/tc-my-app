@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, ImageURISource } from "react-native";
 import React from "react";
 import * as Progress from "react-native-progress";
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import { Colors } from "@/constants/Colors";
 import Rating from "./Rating";
 
@@ -18,16 +19,11 @@ const Card = (props: CardProps) => {
   return (
     <View style={styles.view}>
       <View style={styles.imageView}>
-        <Image
-          source={imageSource}
-          resizeMethod="scale"
-          resizeMode="cover"
-          style={styles.image}
-        />
+        <Image source={imageSource} style={styles.image} />
       </View>
       <View style={styles.bottomContentView}>
         <View style={styles.titleView}>
-          <Text>{title}</Text>
+          <Text style={styles.title}>{title}</Text>
           <View style={styles.starsView}>
             <Rating rating={rating} />
           </View>
@@ -40,7 +36,8 @@ const Card = (props: CardProps) => {
             </Text>
             <Progress.Bar
               progress={progressPercentage / 100}
-              width={174}
+              style={{ width: 140 }}
+              // width={"100%"}
               color={Colors.light.tint}
             />
           </View>
@@ -54,24 +51,29 @@ export default Card;
 
 const styles = StyleSheet.create({
   view: {
-    width: 174,
-    rowGap: 12,
-    margin: 3,
+    rowGap: moderateScale(12),
+    width: scale(130),
+    margin: scale(9),
     justifyContent: "center",
     alignItems: "center",
   },
   imageView: {
-    width: 174,
-    height: 174,
-    borderRadius: 10,
+    width: scale(150),
+    height: verticalScale(150),
+    borderRadius: moderateScale(10),
+    alignItems: "center",
+    justifyContent: "center",
   },
   image: {
     width: "100%",
-    height: "100%",
-    borderRadius: 10,
+    height: verticalScale(120),
+    borderRadius: moderateScale(10),
+    aspectRatio: 1,
+    resizeMode: "cover",
   },
   bottomContentView: {
-    rowGap: 6,
+    rowGap: moderateScale(6),
+    flexWrap: "wrap",
   },
   titleView: {
     flexDirection: "row",
@@ -79,9 +81,14 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     width: "100%",
   },
+  title: {
+    fontSize: moderateScale(10),
+    lineHeight: verticalScale(16.38),
+    fontWeight: "600",
+  },
   starsView: { flexDirection: "row" },
   authorView: {
-    rowGap: 9,
+    rowGap: moderateScale(9),
   },
   progressView: {
     width: "100%",
@@ -90,9 +97,9 @@ const styles = StyleSheet.create({
     alignSelf: "flex-end",
   },
   text: {
-    fontSize: 10,
-    fontWeight: 400,
-    lineHeight: 12.6,
+    fontSize: moderateScale(10),
+    fontWeight: "400",
+    lineHeight: verticalScale(12.6),
     color: "#B7B0B0",
   },
 });

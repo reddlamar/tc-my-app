@@ -1,5 +1,6 @@
-import { StyleSheet, Text, View, ViewStyle } from "react-native";
+import { StyleSheet, View, ViewStyle } from "react-native";
 import React from "react";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 type ChipProps = {
   children: React.ReactNode;
@@ -14,12 +15,12 @@ export default Chip;
 
 const styles = StyleSheet.create({
   view: {
-    borderWidth: 1,
+    borderWidth: horizontalScale(1),
     borderColor: "#E3E3E3",
-    borderRadius: 20,
+    borderRadius: horizontalScale(20),
     backgroundColor: "#fff",
-    paddingHorizontal: 18,
-    paddingVertical: 3,
+    paddingHorizontal: horizontalScale(18),
+    paddingVertical: verticalScale(3),
     alignItems: "center",
   },
 });

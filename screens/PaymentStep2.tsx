@@ -4,27 +4,29 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Section from "@/components/Section";
 import { AntDesign } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const PaymentOptions = ({ onPress }: any) => {
+  const iconSize = horizontalScale(24);
   return (
     <>
       <Section style={styles.paymentSection}>
         <View style={styles.paymentView}>
-          <AntDesign name="pluscircle" size={24} color="black" />
+          <AntDesign name="pluscircle" size={iconSize} color="black" />
           <Text style={styles.paymentText}>PayPal</Text>
         </View>
       </Section>
       <Section style={styles.paymentSection}>
         <Pressable onPress={onPress}>
           <View style={styles.paymentView}>
-            <AntDesign name="pluscircle" size={24} color="black" />
+            <AntDesign name="pluscircle" size={iconSize} color="black" />
             <Text style={styles.paymentText}>Add Credit Card</Text>
           </View>
         </Pressable>
       </Section>
       <Section style={styles.paymentSection}>
         <View style={styles.paymentView}>
-          <AntDesign name="pluscircle" size={24} color="black" />
+          <AntDesign name="pluscircle" size={iconSize} color="black" />
           <Text style={styles.paymentText}>Add Debit Card</Text>
         </View>
       </Section>
@@ -79,41 +81,41 @@ const PaymentStep2 = () => {
 export default PaymentStep2;
 
 const styles = StyleSheet.create({
-  container: { rowGap: 18 },
+  container: { rowGap: verticalScale(18), marginBottom: verticalScale(45) },
   paymentStep2Title: {
-    fontSize: 22,
-    fontWeight: 600,
-    lineHeight: 27.72,
+    fontSize: horizontalScale(22),
+    fontWeight: "600",
+    lineHeight: verticalScale(27.72),
   },
   paymentSection: { paddingHorizontal: 12 },
   paymentView: {
     flexDirection: "row",
-    columnGap: 9,
+    columnGap: horizontalScale(9),
   },
   paymentText: {
-    fontSize: 16,
-    fontWeight: 500,
-    lineHeight: 20.16,
+    fontSize: horizontalScale(16),
+    fontWeight: "500",
+    lineHeight: verticalScale(20.16),
   },
   cardPaymentTextInput: {
-    width: 352,
-    height: 68,
+    width: horizontalScale(352),
+    height: verticalScale(68),
     backgroundColor: "#E5EAF4",
-    paddingHorizontal: 9,
+    paddingHorizontal: horizontalScale(9),
     borderColor: "#CDCDCD",
-    borderRadius: 5,
+    borderRadius: horizontalScale(5),
   },
   cardPaymentText1: {
-    fontSize: 18,
+    fontSize: horizontalScale(18),
     fontWeight: 500,
-    lineHeight: 22.68,
+    lineHeight: verticalScale(22.68),
     borderWidth: 1,
     borderColor: "#CDCDCD",
-    borderRadius: 5,
+    borderRadius: horizontalScale(5),
   },
   extraCardPaymentDetailsView: { flexDirection: "row", columnGap: 24 },
   cardPaymentText2: {
-    width: 165,
-    height: 68,
+    width: horizontalScale(165),
+    height: verticalScale(68),
   },
 });

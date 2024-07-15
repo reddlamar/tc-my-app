@@ -1,11 +1,12 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
+import { Link } from "expo-router";
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import Container from "@/components/Container";
 import Input from "@/components/Input";
 import Register from "@/components/Register";
 import PasswordInput from "@/components/PasswordInput";
 import { Colors } from "@/constants/Colors";
-import { Link } from "expo-router";
 
 const SignIn = () => {
   const [hidePassword, setHidePassword] = useState<boolean>(true);
@@ -15,6 +16,7 @@ const SignIn = () => {
   return (
     <Container style={styles.view}>
       <Register
+        registerTitle="Sign in"
         registerSubTitle="Please Sign in with your account"
         registerText="SIGN IN"
         orRegisterText="Sign in"
@@ -57,14 +59,17 @@ const styles = StyleSheet.create({
   view: {
     justifyContent: "flex-start",
     alignItems: "center",
-    rowGap: 9,
+    rowGap: moderateScale(9),
   },
   titleView: {
     alignItems: "center",
   },
-  title: { color: Colors.light.text, marginTop: 12 },
+  title: {
+    color: Colors.light.text,
+    marginTop: moderateScale(12),
+  },
   inputView: {
-    rowGap: 12,
+    rowGap: moderateScale(12),
   },
   passwordView: {
     flexDirection: "row",
@@ -72,44 +77,57 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "relative",
   },
-  eye: { position: "absolute", right: 9, top: 29 },
+  eye: {
+    position: "absolute",
+    right: scale(9),
+    top: verticalScale(29),
+  },
   forgetPasswordText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     fontWeight: 500,
-    lineHeight: 15.12,
+    lineHeight: scale(15.12),
     color: "#8E8787",
   },
-  socialSignInView: { rowGap: 24 },
+  socialSignInView: {
+    rowGap: moderateScale(24),
+  },
   horizontalRule: {
     borderBottomColor: "#000",
-    borderBottomWidth: 1,
-    height: 1,
+    borderBottomWidth: moderateScale(1),
+    height: verticalScale(1),
     width: "50%",
   },
-  button: { width: 300 },
+  button: { width: scale(300) },
   facebookButton: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#087BEA",
-    paddingHorizontal: 12,
+    paddingHorizontal: moderateScale(12),
   },
-  socialButtonText: { fontSize: 15, width: "auto", marginLeft: 9 },
-  googleImage: { width: 24, height: 24 },
+  socialButtonText: {
+    fontSize: moderateScale(15),
+    width: "auto",
+    marginLeft: moderateScale(9),
+  },
+  googleImage: {
+    width: scale(24),
+    height: verticalScale(24),
+  },
   googleButton: {
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 3,
-    borderWidth: 1,
+    paddingHorizontal: moderateScale(3),
+    borderWidth: moderateScale(1),
     borderColor: "#D9D9D9",
   },
   googleButtonText: { color: "#000" },
   buttonText: {
-    fontSize: 20,
-    fontWeight: 400,
-    lineHeight: 25.2,
+    fontSize: moderateScale(20),
+    fontWeight: "400",
+    lineHeight: verticalScale(25.2),
     textAlign: "center",
     color: "#fff",
     width: "100%",

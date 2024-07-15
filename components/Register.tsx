@@ -1,11 +1,14 @@
-import { StyleSheet, Text, View, SafeAreaView, Image } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import { FontAwesome5 } from "@expo/vector-icons";
 import PrimaryButton from "./PrimaryButton";
-import ButtonLink from "./ButtonLink";
+import LinkButton from "./LinkButton";
 import { Colors } from "@/constants/Colors";
 import { ThemedText } from "./ThemedText";
+import { baseWidth, windowWidth } from "@/constants/WindowDimensions";
+import Container from "./Container";
 
 type RegisterProps = {
   registerTitle?: string;
@@ -32,7 +35,7 @@ const Register = (props: RegisterProps) => {
     registerHereHref,
   } = props;
   return (
-    <>
+    <Container style={styles.view}>
       <View style={styles.titleView}>
         {registerTitle && (
           <ThemedText
@@ -50,9 +53,9 @@ const Register = (props: RegisterProps) => {
       </View>
       {children}
       <View>
-        <ButtonLink style={styles.button} href={"/(tabs)"}>
+        <LinkButton style={styles.button} href={"/(tabs)"}>
           <Text style={styles.buttonText}>{registerText}</Text>
-        </ButtonLink>
+        </LinkButton>
       </View>
       <View style={styles.dividerView}>
         <View style={styles.horizontalRule}></View>
@@ -67,7 +70,11 @@ const Register = (props: RegisterProps) => {
             ...styles.button,
           }}
         >
-          <FontAwesome5 name="facebook-f" size={24} color="white" />
+          <FontAwesome5
+            name="facebook-f"
+            size={moderateScale(24)}
+            color="white"
+          />
           <Text style={[styles.buttonText, styles.socialButtonText]}>
             {`${socialRegisterText} with Facebook`}
           </Text>
@@ -95,13 +102,17 @@ const Register = (props: RegisterProps) => {
           </Text>
         </PrimaryButton>
         <View style={styles.registerHereView}>
-          <Text>{`${registerQuestionText} have an account?`}</Text>
+          <Text
+            style={styles.registerHereText}
+          >{`${registerQuestionText} have an account?`}</Text>
           <Link href={registerHereHref}>
-            <Text>{`${registerHereText} Here`}</Text>
+            <Text
+              style={styles.registerHereText}
+            >{`${registerHereText} Here`}</Text>
           </Link>
         </View>
       </View>
-    </>
+    </Container>
   );
 };
 
@@ -111,50 +122,63 @@ const styles = StyleSheet.create({
   view: {
     flex: 1,
     alignItems: "center",
-    rowGap: 9,
+    rowGap: moderateScale(7),
+    justifyContent: windowWidth > baseWidth ? "center" : "flex-start",
   },
-  socialSignInView: { rowGap: 24 },
+  socialSignInView: {
+    rowGap: moderateScale(21),
+  },
   titleView: {
     alignItems: "center",
   },
-  title: { color: Colors.light.text, marginTop: 12 },
+  title: {
+    color: Colors.light.text,
+    marginTop: moderateScale(9),
+  },
   horizontalRule: {
     borderBottomColor: "#000",
-    borderBottomWidth: 1,
-    height: 1,
+    borderBottomWidth: moderateScale(1),
+    height: verticalScale(1),
     width: "50%",
   },
   dividerView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 3,
-    marginHorizontal: 90,
+    columnGap: moderateScale(3),
+    marginHorizontal: moderateScale(90),
   },
   dividerText: { textAlign: "center" },
-  button: { width: 300 },
+  button: { width: scale(300) },
   facebookButton: {
     flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     backgroundColor: "#087BEA",
-    paddingHorizontal: 12,
+    paddingHorizontal: moderateScale(12),
   },
-  socialButtonText: { fontSize: 15, width: "auto", marginLeft: 9 },
-  googleImage: { width: 24, height: 24 },
+  socialButtonText: {
+    fontSize: moderateScale(15),
+    width: "auto",
+    marginLeft: moderateScale(9),
+  },
+  googleImage: {
+    width: scale(24),
+    height: verticalScale(24),
+  },
   googleButton: {
     backgroundColor: "#fff",
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    paddingHorizontal: 3,
-    borderWidth: 1,
+    paddingHorizontal: moderateScale(3),
+    borderWidth: moderateScale(1),
     borderColor: "#D9D9D9",
   },
   googleButtonText: { color: "#000" },
   buttonText: {
-    fontSize: 20,
-    fontWeight: 400,
-    lineHeight: 25.2,
+    fontSize: moderateScale(20),
+    fontWeight: "400",
+    lineHeight: moderateScale(25.2),
     textAlign: "center",
     color: "#fff",
     width: "100%",
@@ -167,5 +191,9 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-evenly",
+    marginBottom: moderateScale(18),
+  },
+  registerHereText: {
+    fontSize: moderateScale(15),
   },
 });

@@ -8,6 +8,7 @@ import {
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import Section from "./Section";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 type PaymentStepsProps = {
   activeStep1: boolean;
@@ -21,7 +22,7 @@ type PaymentStepsProps = {
 const PaymentSteps = (props: PaymentStepsProps) => {
   const { activeStep1, activeStep2, activeStep3 } = props;
   const { onPressCircle1, onPressCircle2, onPressCircle3 } = props;
-  const circleSize = 50;
+  const circleSize = horizontalScale(50);
 
   return (
     <Section style={styles.section}>
@@ -80,15 +81,15 @@ const PaymentSteps = (props: PaymentStepsProps) => {
 export default PaymentSteps;
 
 const styles = StyleSheet.create({
-  section: { marginTop: 30 },
+  section: { marginTop: verticalScale(30), width: horizontalScale(352) },
   circles: {
     flexDirection: "row",
     alignItems: "center",
     columnGap: 1,
-    marginHorizontal: 90,
+    marginHorizontal: horizontalScale(90),
     marginVertical: "auto",
     position: "relative",
-    top: 6,
+    top: verticalScale(6),
     justifyContent: "center",
   },
   circle: { alignItems: "center" },
@@ -96,26 +97,38 @@ const styles = StyleSheet.create({
   circleText: {
     color: "white",
     position: "relative",
-    left: 17,
-    bottom: 35,
-    fontSize: 16,
+    left: horizontalScale(17),
+    bottom: verticalScale(35),
+    fontSize: horizontalScale(16),
     fontWeight: 600,
   },
   paymentStepsContainer: {
     flexDirection: "row",
     justifyContent: "space-evenly",
     position: "relative",
-    bottom: 9,
+    bottom: verticalScale(9),
   },
-  overviewText: { fontSize: 8, position: "relative", left: 8 },
-  paymentMethodText: { fontSize: 8, position: "relative", left: 10 },
-  confirmationText: { fontSize: 8, position: "relative", left: 3 },
+  overviewText: {
+    fontSize: horizontalScale(8),
+    position: "relative",
+    left: horizontalScale(8),
+  },
+  paymentMethodText: {
+    fontSize: horizontalScale(8),
+    position: "relative",
+    left: horizontalScale(10),
+  },
+  confirmationText: {
+    fontSize: horizontalScale(8),
+    position: "relative",
+    left: horizontalScale(3),
+  },
   horizontalRule: {
     borderBottomColor: "#000",
-    borderBottomWidth: 1,
-    height: 1,
+    borderBottomWidth: horizontalScale(1),
+    height: verticalScale(1),
     width: "35%",
     position: "relative",
-    bottom: 8,
+    bottom: verticalScale(8),
   },
 });

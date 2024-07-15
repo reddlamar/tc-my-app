@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { Entypo } from "@expo/vector-icons";
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Chip from "@/components/Chip";
@@ -52,75 +53,78 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: 100,
-    height: 100,
+    width: scale(100),
+    height: verticalScale(100),
     resizeMode: "cover",
-    borderRadius: 90,
+    borderRadius: moderateScale(100 / 2),
     position: "relative",
-    top: 30,
+    top: moderateScale(30),
     zIndex: 1,
   },
   section: {
-    width: 346,
-    height: 427,
-    borderRadius: 10,
+    width: scale(300),
+    height: verticalScale(427),
+    borderRadius: moderateScale(10),
     alignItems: "center",
+    justifyContent: "center",
+    rowGap: verticalScale(24),
+    // marginHorizontal: moderateScale(50),
   },
   editIcon: {
     position: "absolute",
-    right: 6,
-    top: 6,
+    right: verticalScale(6),
+    top: moderateScale(6),
   },
   topView: {
-    marginTop: 24,
+    marginTop: moderateScale(24),
     justifyContent: "center",
   },
   nameHere: {
-    fontSize: 22,
-    fontWeight: 600,
-    lineHeight: 27.72,
+    fontSize: moderateScale(22),
+    fontWeight: "600",
+    lineHeight: moderateScale(27.72),
     textAlign: "center",
   },
   tagLine: {
-    fontSize: 12,
-    fontWeight: 600,
-    lineHeight: 15.12,
+    fontSize: moderateScale(12),
+    fontWeight: "600",
+    lineHeight: moderateScale(15.12),
     textAlign: "center",
     color: "#A9A5A5",
   },
   middleView: {
-    padding: 12,
-    rowGap: 9,
+    padding: moderateScale(12),
+    rowGap: moderateScale(9),
   },
   subTitle: {
-    fontSize: 18,
-    fontWeight: 600,
-    lineHeight: 22.68,
+    fontSize: moderateScale(18),
+    fontWeight: "600",
+    lineHeight: moderateScale(22.68),
     textAlign: "left",
   },
   aboutMe: {
-    fontSize: 14,
-    fontWeight: 400,
-    lineHeight: 17.64,
+    fontSize: moderateScale(14),
+    fontWeight: "400",
+    lineHeight: moderateScale(17.64),
     color: "#B7B0B0",
   },
   bottomView: {
-    padding: 12,
-    rowGap: 9,
+    padding: moderateScale(12),
+    rowGap: moderateScale(9),
   },
   bottomInnerView: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: 9,
+    gap: moderateScale(9),
   },
   chip: {
     backgroundColor: "transparent",
-    borderWidth: 1,
+    borderWidth: moderateScale(1),
     borderColor: "#C6C6C6",
   },
   chipText: {
-    fontSize: 14,
-    fontWeight: 400,
-    lineHeight: 17.64,
+    fontSize: moderateScale(14),
+    fontWeight: "400",
+    lineHeight: moderateScale(17.64),
   },
 });

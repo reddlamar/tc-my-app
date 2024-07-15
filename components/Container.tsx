@@ -3,9 +3,7 @@ import React from "react";
 import { SafeAreaViewProps } from "react-native-safe-area-context";
 
 const Container = ({ children, style }: SafeAreaViewProps) => {
-  return (
-    <SafeAreaView style={[styles.container, style]}>{children}</SafeAreaView>
-  );
+  return <View style={[styles.container, style]}>{children}</View>;
 };
 
 export default Container;

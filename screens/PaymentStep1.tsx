@@ -1,8 +1,9 @@
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import React, { useContext } from "react";
 import CourseDetailsItems from "@/components/CourseDetailsItems";
 import Rating from "@/components/Rating";
 import { CourseContext } from "@/context/CourseContext";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const PaymentStep1 = () => {
   const { course } = useContext(CourseContext);
@@ -60,15 +61,19 @@ const PaymentStep1 = () => {
 export default PaymentStep1;
 
 const styles = StyleSheet.create({
-  container: { rowGap: 21, alignItems: "center" },
-  topView: { rowGap: 21, justifyContent: "center", paddingHorizontal: 15 },
+  container: { rowGap: verticalScale(21), alignItems: "center" },
+  topView: {
+    rowGap: verticalScale(21),
+    justifyContent: "center",
+    paddingHorizontal: horizontalScale(15),
+  },
   titleView: {
-    rowGap: 15,
+    rowGap: verticalScale(15),
   },
   title: {
-    fontSize: 22,
-    fontWeight: 600,
-    lineHeight: 27.72,
+    fontSize: horizontalScale(22),
+    fontWeight: "600",
+    lineHeight: verticalScale(27.72),
     textAlign: "center",
     alignSelf: "flex-start",
   },
@@ -78,47 +83,50 @@ const styles = StyleSheet.create({
     columnGap: 3,
   },
   subTitleText: {
-    fontSize: 20,
+    fontSize: horizontalScale(20),
   },
   subTitleText1: {
-    fontWeight: 400,
-    lineHeight: 25.2,
+    fontWeight: "400",
+    lineHeight: verticalScale(25.2),
     textAlign: "center",
   },
-  subTitleText2: { fontWeight: 600 },
+  subTitleText2: { fontWeight: "600" },
   courseDetailsView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 9,
+    columnGap: horizontalScale(9),
   },
-  courseDetailsInnerView: { rowGap: 9 },
+  courseDetailsInnerView: { rowGap: verticalScale(9) },
   courseDetailsTitleView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 21,
+    columnGap: horizontalScale(21),
   },
   purchaseDetailsView: {
-    width: 352,
-    height: 97,
-    borderWidth: 1,
-    borderRadius: 20,
+    width: horizontalScale(352),
+    height: verticalScale(97),
+    borderWidth: horizontalScale(1),
+    borderRadius: horizontalScale(20),
     borderColor: "#D9E0EF",
-    paddingVertical: 12,
-    paddingHorizontal: 18,
+    paddingVertical: verticalScale(12),
+    paddingHorizontal: horizontalScale(18),
   },
   purchaseDetailsText: {
     position: "absolute",
-    top: -8,
-    left: 12,
+    top: verticalScale(-8),
+    left: horizontalScale(12),
     backgroundColor: "#fff",
-    marginHorizontal: 12,
-    paddingHorizontal: 3,
+    marginHorizontal: horizontalScale(12),
+    paddingHorizontal: horizontalScale(3),
   },
   purchaseDetailsInnerView: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 9,
+    marginTop: verticalScale(9),
   },
-  purchaseDetailsItemView: { rowGap: 24, justifyContent: "center" },
+  purchaseDetailsItemView: {
+    rowGap: verticalScale(24),
+    justifyContent: "center",
+  },
 });

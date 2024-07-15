@@ -1,5 +1,6 @@
 import { GestureResponderEvent, Pressable, StyleSheet } from "react-native";
 import React, { useCallback } from "react";
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import { CustomButtonProps } from "@/types/PropsType";
 
 const PrimaryButton = ({
@@ -30,9 +31,9 @@ export default PrimaryButton;
 
 const styles = StyleSheet.create({
   button: {
-    width: 221,
-    height: 57,
-    borderRadius: 10,
+    width: scale(221),
+    height: verticalScale(57),
+    borderRadius: moderateScale(10),
     backgroundColor: "#003096",
     justifyContent: "center",
     alignItems: "center",

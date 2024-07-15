@@ -1,6 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
 import { SectionProps } from "@/types/PropsType";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const Section = ({ children, style, ...props }: SectionProps) => {
   return (
@@ -14,14 +15,12 @@ export default Section;
 
 const styles = StyleSheet.create({
   view: {
-    width: 338,
+    width: horizontalScale(338),
     height: "auto",
-    borderWidth: 1,
-    borderRadius: 10,
+    borderWidth: horizontalScale(1),
+    borderRadius: horizontalScale(10),
     borderColor: "#D9D9D9",
     backgroundColor: "#0030961A",
-    // justifyContent: "center",
-    // alignItems: "center",
-    paddingVertical: 18,
+    paddingVertical: verticalScale(18),
   },
 });

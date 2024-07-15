@@ -12,6 +12,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import PaymentStep1 from "@/screens/PaymentStep1";
 import PaymentStep2 from "@/screens/PaymentStep2";
 import PaymentSteps from "@/components/PaymentSteps";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const PaymentStep3 = () => {
   return (
@@ -108,35 +109,40 @@ const Payment = () => {
 export default Payment;
 
 const styles = StyleSheet.create({
-  container: { alignItems: "center", rowGap: 21 },
-  scrollContainer: {
-    height: "100%",
-    paddingBottom: 15,
+  container: {
     alignItems: "center",
+    rowGap: verticalScale(21),
+    paddingHorizontal: horizontalScale(9),
+  },
+  scrollContainer: {
+    // height: "100%",
+    paddingBottom: verticalScale(15),
+    alignItems: "center",
+    rowGap: verticalScale(9),
   },
   transactionCompleteText: {
-    fontSize: 22,
-    fontWeight: 600,
-    lineHeight: 27.72,
+    fontSize: horizontalScale(22),
+    fontWeight: "600",
+    lineHeight: verticalScale(27.72),
     textAlign: "center",
     color: "#000",
   },
   image: {
-    width: 250,
-    height: 322,
+    width: horizontalScale(250),
+    height: verticalScale(322),
     resizeMode: "contain",
   },
   button: {
     width: "90%",
-    marginBottom: 3,
-    marginTop: 24,
-    position: "absolute",
+    marginBottom: verticalScale(3),
+    marginTop: verticalScale(24),
+    position: "relative",
     bottom: 0,
   },
   buttonText: {
     color: "#fff",
-    fontSize: 29,
-    fontWeight: 600,
+    fontSize: horizontalScale(29),
+    fontWeight: "600",
     textAlign: "center",
   },
 });

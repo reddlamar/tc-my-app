@@ -4,7 +4,8 @@ import Container from "@/components/Container";
 import PasswordInput from "@/components/PasswordInput";
 import { ThemedText } from "@/components/ThemedText";
 import { usePassword } from "@/hooks/usePassword";
-import ButtonLink from "@/components/ButtonLink";
+import LinkButton from "@/components/LinkButton";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const ResetPassword = () => {
   const {
@@ -37,24 +38,24 @@ const ResetPassword = () => {
         hidePassword={hidePassword}
         onPressHidePassword={setHidePassword}
       />
-      <ButtonLink href="/reset-password-success">
+      <LinkButton href="/reset-password-success">
         <Text style={styles.text}>Done</Text>
-      </ButtonLink>
+      </LinkButton>
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    rowGap: 60,
+    rowGap: verticalScale(60),
     alignItems: "center",
-    marginTop: 18,
+    marginTop: verticalScale(18),
   },
   text: {
     color: "#fff",
-    fontSize: 20,
+    fontSize: horizontalScale(20),
     fontWeight: 600,
-    lineHeight: 25.2,
+    lineHeight: verticalScale(25.2),
     textAlign: "center",
   },
 });

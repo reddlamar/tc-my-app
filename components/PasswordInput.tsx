@@ -1,7 +1,8 @@
-import { ScrollView, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 import React, { useCallback } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Input from "./Input";
+import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 
 type PasswordProps = {
   password: string;
@@ -40,7 +41,7 @@ const PasswordInput = (props: PasswordProps) => {
           {hidePassword ? (
             <Ionicons
               name="eye-off"
-              size={24}
+              size={moderateScale(24)}
               color="black"
               style={styles.eye}
               onPress={() => onPressHidePassword(!hidePassword)}
@@ -48,7 +49,7 @@ const PasswordInput = (props: PasswordProps) => {
           ) : (
             <Ionicons
               name="eye"
-              size={24}
+              size={moderateScale(24)}
               color="black"
               style={styles.eye}
               onPress={() => onPressHidePassword(!hidePassword)}
@@ -71,7 +72,7 @@ const PasswordInput = (props: PasswordProps) => {
         {hidePassword ? (
           <Ionicons
             name="eye-off"
-            size={24}
+            size={moderateScale(24)}
             color="black"
             style={styles.eye}
             onPress={() => onPressHidePassword(!hidePassword)}
@@ -79,7 +80,7 @@ const PasswordInput = (props: PasswordProps) => {
         ) : (
           <Ionicons
             name="eye"
-            size={24}
+            size={moderateScale(24)}
             color="black"
             style={styles.eye}
             onPress={() => onPressHidePassword(!hidePassword)}
@@ -100,5 +101,9 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "relative",
   },
-  eye: { position: "absolute", right: 9, top: 29 },
+  eye: {
+    position: "absolute",
+    right: scale(9),
+    top: verticalScale(25),
+  },
 });

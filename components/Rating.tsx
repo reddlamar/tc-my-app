@@ -3,6 +3,7 @@ import React, { useCallback } from "react";
 import { RatingProps } from "@/types/PropsType";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
+import { moderateScale } from "react-native-size-matters";
 
 const Rating = ({ rating = 0 }: RatingProps) => {
   const renderStars = useCallback(() => {
@@ -12,7 +13,7 @@ const Rating = ({ rating = 0 }: RatingProps) => {
         <MaterialIcons
           key={num + 1}
           name="star"
-          size={12}
+          size={moderateScale(10)}
           color={Colors.light.tint}
         />
       );
@@ -28,5 +29,3 @@ const Rating = ({ rating = 0 }: RatingProps) => {
 };
 
 export default Rating;
-
-const styles = StyleSheet.create({});

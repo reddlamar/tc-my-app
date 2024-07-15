@@ -3,6 +3,8 @@ import React from "react";
 import Container from "@/components/Container";
 import Chip from "@/components/Chip";
 import SearchBar from "@/components/SearchBar";
+// import { scale, verticalScale } from "@/constants/WindowDimensions";
+import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 
 const Message = () => {
   return (
@@ -41,7 +43,7 @@ const Inbox = () => {
           <Text style={[styles.chipText, styles.callsText]}>Calls</Text>
         </Chip>
       </View>
-      <ScrollView style={{ paddingHorizontal: 30 }}>
+      <ScrollView style={styles.scrollView}>
         <Message />
         <Message />
         <Message />
@@ -55,7 +57,7 @@ export default Inbox;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    rowGap: 15,
+    rowGap: verticalScale(15),
   },
   searchBarView: {
     justifyContent: "center",
@@ -63,11 +65,11 @@ const styles = StyleSheet.create({
   },
   chipView: {
     flexDirection: "row",
-    columnGap: 15,
+    columnGap: moderateScale(15),
   },
   chip: {
-    width: 160,
-    height: 45,
+    width: scale(160),
+    height: verticalScale(45),
     justifyContent: "center",
     alignItems: "center",
   },
@@ -78,9 +80,9 @@ const styles = StyleSheet.create({
     backgroundColor: "#E5EAF4",
   },
   chipText: {
-    fontSize: 22,
-    fontWeight: 600,
-    lineHeight: 27.72,
+    fontSize: moderateScale(22),
+    fontWeight: "600",
+    lineHeight: verticalScale(27.72),
     textAlign: "center",
   },
   chatText: {
@@ -93,57 +95,56 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "center",
-    columnGap: 9,
-    width: "100%",
-    borderBottomWidth: 1,
+    columnGap: moderateScale(9),
+    borderBottomWidth: moderateScale(1),
   },
   messageInnerView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 120,
-    marginVertical: 30,
+    columnGap: moderateScale(100),
+    marginVertical: verticalScale(30),
   },
-  textView: {},
   sender: {
-    fontSize: 18,
-    fontWeight: 600,
-    lineHeight: 22.68,
+    fontSize: scale(18),
+    fontWeight: "600",
+    lineHeight: verticalScale(22.68),
     textAlign: "center",
   },
   text: {
-    fontSize: 12,
-    fontWeight: 500,
-    lineHeight: 15.12,
+    fontSize: scale(12),
+    fontWeight: "500",
+    lineHeight: verticalScale(15.12),
     textAlign: "center",
   },
   timeView: {
     alignItems: "center",
-    paddingVertical: 9,
-    rowGap: 6,
+    paddingVertical: verticalScale(9),
+    rowGap: verticalScale(6),
   },
   counter: {
-    width: 24,
-    height: 24,
-    borderRadius: 30,
+    width: scale(24),
+    height: verticalScale(24),
+    borderRadius: scale(30),
     backgroundColor: "#003096",
     justifyContent: "center",
     alignItems: "center",
   },
   counterText: {
     color: "#fff",
-    fontSize: 10,
-    fontWeight: 600,
+    fontSize: scale(10),
+    fontWeight: "600",
   },
   time: {
-    fontSize: 10,
-    fontWeight: 600,
-    lineHeight: 12.6,
+    fontSize: scale(10),
+    fontWeight: "600",
+    lineHeight: verticalScale(12.6),
     textAlign: "center",
   },
   image: {
-    width: 60,
-    height: 60,
+    width: scale(60),
+    height: verticalScale(60),
     resizeMode: "cover",
-    borderRadius: 40,
+    borderRadius: scale(40),
   },
+  scrollView: { paddingHorizontal: scale(30) },
 });

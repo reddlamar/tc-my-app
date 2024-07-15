@@ -2,8 +2,9 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { ButtonLinkProps } from "@/types/PropsType";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
-const ButtonLink = ({ href, style, children }: ButtonLinkProps) => {
+const LinkButton = ({ href, style, children }: ButtonLinkProps) => {
   return (
     <View style={[styles.view, style]}>
       <Link href={href}>{children}</Link>
@@ -11,13 +12,13 @@ const ButtonLink = ({ href, style, children }: ButtonLinkProps) => {
   );
 };
 
-export default ButtonLink;
+export default LinkButton;
 
 const styles = StyleSheet.create({
   view: {
-    width: 221,
-    height: 57,
-    borderRadius: 10,
+    width: horizontalScale(221),
+    height: verticalScale(57),
+    borderRadius: horizontalScale(10),
     backgroundColor: "#003096",
     justifyContent: "center",
     alignItems: "center",

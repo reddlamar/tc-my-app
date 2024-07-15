@@ -6,6 +6,7 @@ import {
   View,
 } from "react-native";
 import React from "react";
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 
 type InputProps = TextInputProps & {
   label: string;
@@ -42,15 +43,15 @@ const styles = StyleSheet.create({
     flexDirection: "column",
   },
   label: {
-    fontSize: 16,
-    fontWeight: 400,
+    fontSize: moderateScale(16),
+    fontWeight: "400",
   },
   input: {
-    width: 337,
-    height: 39,
-    borderRadius: 3,
-    borderWidth: 1,
+    width: scale(337),
+    height: verticalScale(39),
+    borderRadius: moderateScale(3),
+    borderWidth: moderateScale(1),
     borderColor: "#000",
-    paddingHorizontal: 6,
+    paddingHorizontal: moderateScale(6),
   },
 });

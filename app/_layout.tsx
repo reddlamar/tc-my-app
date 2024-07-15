@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { SafeAreaView, View, StyleSheet } from "react-native";
+import { View, StyleSheet, SafeAreaView } from "react-native";
 import {
   DarkTheme,
   DefaultTheme,
@@ -9,6 +9,7 @@ import { useFonts } from "expo-font";
 import { Stack, useNavigation } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import "react-native-reanimated";
+import { moderateScale } from "react-native-size-matters";
 import { Octicons } from "@expo/vector-icons";
 
 import { CourseProvider } from "@/context/CourseContext";
@@ -32,10 +33,10 @@ const RootHeader = ({
   bellIconColor,
 }: RootHeaderProps) => {
   const navigation = useNavigation<NativeStackNavigatorProps>();
-  const iconSize = 21;
+  const iconSize = moderateScale(21);
 
   return (
-    <Header title={title}>
+    <Header title={title} screen="(tabs)">
       <View style={styles.notificationsHeaderInnerContainer}>
         <Octicons
           name="gear"
@@ -72,72 +73,80 @@ export default function RootLayout() {
 
   return (
     <CourseProvider>
-      <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
-        <Stack initialRouteName="index">
-          <Stack.Screen
-            name="index"
-            options={{
-              headerShown: false,
-              headerBackTitleVisible: false,
-            }}
-          />
-          <Stack.Screen
-            name="sign-in"
-            options={{ headerBackTitleVisible: false, headerTitle: "Sign In" }}
-          />
-          <Stack.Screen
-            name="sign-up"
-            options={{ headerBackTitleVisible: false, headerTitle: "Sign Up" }}
-          />
-          <Stack.Screen
-            name="reset-password"
-            options={{ headerBackTitleVisible: false, headerTitle: "" }}
-          />
-          <Stack.Screen
-            name="reset-password-success"
-            options={{ headerBackTitleVisible: false, headerTitle: "" }}
-          />
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-          <Stack.Screen name="details/[id]" options={{ headerShown: false }} />
-          <Stack.Screen
-            name="payment"
-            options={{ title: "", headerBackTitleVisible: false }}
-          />
-          <Stack.Screen
-            name="notifications"
-            options={{
-              header: () => (
-                <RootHeader
-                  title="Notifications"
-                  gearIconColor="#DCDEE0"
-                  bellIconColor="#06367E"
-                />
-              ),
-            }}
-          />
-          <Stack.Screen
-            name="settings"
-            options={{
-              header: () => (
-                <RootHeader
-                  title="Settings"
-                  gearIconColor="#06367E"
-                  bellIconColor="#DCDEE0"
-                />
-              ),
-            }}
-          />
-          <Stack.Screen name="+not-found" />
-        </Stack>
+      <ThemeProvider value={DefaultTheme}>
+        <SafeAreaView style={styles.view}>
+          <Stack initialRouteName="index">
+            <Stack.Screen
+              name="index"
+              options={{
+                headerShown: false,
+                headerBackTitleVisible: false,
+              }}
+            />
+            <Stack.Screen
+              name="sign-in"
+              options={{
+                header: () => <Header />,
+              }}
+            />
+            <Stack.Screen
+              name="sign-up"
+              options={{ header: () => <Header /> }}
+            />
+            <Stack.Screen
+              name="reset-password"
+              options={{ headerBackTitleVisible: false, headerTitle: "" }}
+            />
+            <Stack.Screen
+              name="reset-password-success"
+              options={{ headerBackTitleVisible: false, headerTitle: "" }}
+            />
+            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+            <Stack.Screen
+              name="details/[id]"
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="payment"
+              options={{ header: () => <Header /> }}
+            />
+            <Stack.Screen
+              name="notifications"
+              options={{
+                header: () => (
+                  <RootHeader
+                    title="Notifications"
+                    gearIconColor="#DCDEE0"
+                    bellIconColor="#06367E"
+                  />
+                ),
+              }}
+            />
+            <Stack.Screen
+              name="settings"
+              options={{
+                header: () => (
+                  <RootHeader
+                    title="Settings"
+                    gearIconColor="#06367E"
+                    bellIconColor="#DCDEE0"
+                  />
+                ),
+              }}
+            />
+            <Stack.Screen name="+not-found" />
+          </Stack>
+        </SafeAreaView>
       </ThemeProvider>
     </CourseProvider>
   );
 }
 
 const styles = StyleSheet.create({
+  view: { flex: 1 },
   notificationsHeaderInnerContainer: {
     flexDirection: "row",
-    columnGap: 9,
-    marginRight: 9,
+    columnGap: moderateScale(9),
+    marginRight: moderateScale(9),
   },
 });

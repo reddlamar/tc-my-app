@@ -9,6 +9,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { Chapter } from "@/types/CourseType";
+import { verticalScale } from "@/constants/WindowDimensions";
 
 type LessonProps = {
   chapter: Chapter;
@@ -64,6 +65,6 @@ const Lesson = ({ chapter }: LessonProps) => {
 export default Lesson;
 
 const styles = StyleSheet.create({
-  container: { rowGap: 12, alignItems: "center" },
-  section: { height: 175 },
+  container: { rowGap: verticalScale(12), alignItems: "center" },
+  section: { height: verticalScale(175) },
 });

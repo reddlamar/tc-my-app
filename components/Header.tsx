@@ -3,15 +3,17 @@ import React from "react";
 import { useNavigation } from "expo-router";
 import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
 import { Ionicons } from "@expo/vector-icons";
+import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 type HeaderProps = {
+  screen?: string;
   title?: string;
   iconColor?: string;
   children?: React.ReactNode;
   style?: ViewStyle;
 };
 
-const Header = ({ title, iconColor, children, style }: HeaderProps) => {
+const Header = ({ title, iconColor, screen, children, style }: HeaderProps) => {
   const navigation = useNavigation<NativeStackNavigatorProps>();
 
   return (
@@ -19,9 +21,11 @@ const Header = ({ title, iconColor, children, style }: HeaderProps) => {
       <View style={styles.notificationsHeaderInnerContainer}>
         <Ionicons
           name="arrow-back"
-          size={24}
+          size={horizontalScale(24)}
           color={iconColor ?? "#000"}
-          onPress={() => navigation.navigate("(tabs)")}
+          onPress={() =>
+            screen ? navigation.navigate(screen) : navigation.goBack()
+          }
         />
         {title && <Text style={styles.text}>{title}</Text>}
       </View>
@@ -36,21 +40,20 @@ const styles = StyleSheet.create({
   notificationsHeaderContainer: {
     flexDirection: "row",
     alignItems: "center",
-    padding: 12,
+    padding: horizontalScale(12),
     justifyContent: "space-between",
     backgroundColor: "#fff",
   },
   notificationsHeaderInnerContainer: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 9,
-    paddingVertical: 12,
-    // width: "100%",
+    columnGap: horizontalScale(9),
+    paddingVertical: verticalScale(12),
   },
   text: {
-    fontSize: 22,
-    fontWeight: 600,
-    lineHeight: 27.72,
+    fontSize: horizontalScale(22),
+    fontWeight: "600",
+    lineHeight: verticalScale(27.72),
     textAlign: "center",
   },
 });

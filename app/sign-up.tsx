@@ -1,6 +1,6 @@
-import { StyleSheet, View } from "react-native";
+import { ScrollView, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
-import Container from "@/components/Container";
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import Register from "@/components/Register";
 import Input from "@/components/Input";
 import PasswordInput from "@/components/PasswordInput";
@@ -13,9 +13,9 @@ const SignUp = () => {
   const [fullName, setFullName] = useState<string>("");
 
   return (
-    <Container style={styles.view}>
+    <ScrollView contentContainerStyle={styles.view}>
       <Register
-        // registerTitle="Sign Up"
+        registerTitle="Sign Up"
         registerSubTitle="Create an account to begin your Learning Journey"
         registerText="SIGN UP"
         orRegisterText="Sign Up"
@@ -48,7 +48,7 @@ const SignUp = () => {
           </View>
         }
       />
-    </Container>
+    </ScrollView>
   );
 };
 
@@ -56,11 +56,11 @@ export default SignUp;
 
 const styles = StyleSheet.create({
   view: {
-    rowGap: 9,
+    rowGap: moderateScale(9),
     alignItems: "center",
   },
   inputView: {
-    rowGap: 12,
+    rowGap: moderateScale(12),
   },
   passwordView: {
     flexDirection: "row",
@@ -68,11 +68,15 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     position: "relative",
   },
-  eye: { position: "absolute", right: 9, top: 29 },
+  eye: {
+    position: "absolute",
+    right: scale(9),
+    top: verticalScale(29),
+  },
   forgetPasswordText: {
-    fontSize: 12,
+    fontSize: moderateScale(12),
     fontWeight: 500,
-    lineHeight: 15.12,
+    lineHeight: verticalScale(15.12),
     color: "#8E8787",
     alignSelf: "flex-end",
   },

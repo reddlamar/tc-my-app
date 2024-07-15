@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View, Image, FlatList } from "react-native";
 import React, { useCallback } from "react";
 import * as Progress from "react-native-progress";
+import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 import Container from "../../components/Container";
 import Section from "@/components/Section";
 import { Colors } from "@/constants/Colors";
@@ -24,7 +25,7 @@ const CourseItem = ({ course }: CourseProps) => {
           </Text>
           <Progress.Bar
             progress={course.progressPercentage / 100}
-            width={174}
+            width={moderateScale(174)}
             color={Colors.light.tint}
           />
         </View>
@@ -57,32 +58,34 @@ const styles = StyleSheet.create({
   container: {
     alignItems: "center",
   },
-  flatList: { rowGap: 15, marginTop: 30 },
+  flatList: { rowGap: verticalScale(24), marginTop: verticalScale(30) },
   section: {
     flexDirection: "row",
     justifyContent: "center",
-    columnGap: 9,
+    alignItems: "center",
+    columnGap: scale(9),
+    paddingHorizontal: moderateScale(9),
   },
   image: {
-    width: 48,
-    height: 48,
-    borderRadius: 5,
+    width: scale(51),
+    height: verticalScale(51),
+    borderRadius: scale(5),
   },
   course: {
-    fontSize: 12,
-    fontWeight: 600,
-    lineHeight: 15.12,
+    fontSize: moderateScale(18),
+    fontWeight: "600",
+    lineHeight: scale(18.12),
   },
   author: {
-    fontSize: 10,
-    fontWeight: 400,
-    lineHeight: 12.6,
+    fontSize: moderateScale(12),
+    fontWeight: "400",
+    lineHeight: scale(12.6),
     color: "#B7B0B0",
   },
   percentDone: {
-    fontSize: 8,
-    fontWeight: 500,
-    lineHeight: 10.08,
+    fontSize: moderateScale(9),
+    fontWeight: "500",
+    lineHeight: scale(10.08),
     alignSelf: "flex-end",
     color: "#B7B0B0",
   },

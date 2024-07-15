@@ -6,6 +6,13 @@ import { useGetCourse } from "@/hooks/useGetCourse";
 import EnrollButton from "@/components/EnrollButton";
 import CourseDetailsItems from "@/components/CourseDetailsItems";
 import { CourseContext } from "@/context/CourseContext";
+import {
+  baseWidth,
+  baseHeight,
+  windowHeight,
+  windowWidth,
+  scaleFactor,
+} from "@/constants/WindowDimensions";
 
 const Overview = ({ route }: any) => {
   const course = useGetCourse(route?.params?.courseID ?? 1);
@@ -19,41 +26,41 @@ const Overview = ({ route }: any) => {
     <ScrollView>
       <View style={styles.detailsView}>
         <View>
-          <Text>{course?.title}</Text>
+          <Text style={styles.title}>{course?.title}</Text>
           <View style={styles.authorPriceView}>
-            <Text>{course?.author}</Text>
-            <Text>${course?.price}</Text>
+            <Text style={styles.author}>{course?.author}</Text>
+            <Text style={styles.price}>${course?.price}</Text>
           </View>
           <Rating rating={course?.rating ?? 0} />
         </View>
         <View style={{ alignItems: "center", justifyContent: "center" }}>
-          <Text>
+          <Text style={styles.description}>
             {course?.description}
-            <Text style={{ color: "#003096" }}>Read More</Text>
+            <Text style={styles.readMoreText}>Read More</Text>
           </Text>
         </View>
         <CourseDetailsItems />
       </View>
       <View style={styles.skillsView}>
-        <Text style={{ padding: 6 }}>Skills</Text>
+        <Text style={styles.skillsText}>Skills</Text>
         <View style={styles.skillChipsView}>
-          <Chip>
-            <Text>Adobe</Text>
+          <Chip style={styles.skillChip}>
+            <Text style={styles.chipText}>Adobe</Text>
           </Chip>
-          <Chip>
-            <Text>Adobe Photo Shop</Text>
+          <Chip style={styles.skillChip}>
+            <Text style={styles.chipText}>Adobe Photo Shop</Text>
           </Chip>
-          <Chip>
-            <Text>Logo</Text>
+          <Chip style={styles.skillChip}>
+            <Text style={styles.chipText}>Logo</Text>
           </Chip>
-          <Chip>
-            <Text>Designing</Text>
+          <Chip style={styles.skillChip}>
+            <Text style={styles.chipText}>Designing</Text>
           </Chip>
-          <Chip>
-            <Text>Poster Design</Text>
+          <Chip style={styles.skillChip}>
+            <Text style={styles.chipText}>Poster Design</Text>
           </Chip>
-          <Chip>
-            <Text>Figma</Text>
+          <Chip style={styles.skillChip}>
+            <Text style={styles.chipText}>Figma</Text>
           </Chip>
         </View>
       </View>
@@ -67,25 +74,46 @@ export default Overview;
 const styles = StyleSheet.create({
   detailsView: {
     flex: 5,
-    paddingHorizontal: 9,
-    rowGap: 12,
-    paddingVertical: 12,
+    paddingHorizontal: windowWidth > baseWidth ? 9 * scaleFactor : 9,
+    rowGap: windowHeight > baseHeight ? 12 * scaleFactor : 12,
+    paddingVertical: windowHeight > baseHeight ? 12 * scaleFactor : 12,
+  },
+  title: {
+    fontSize: windowWidth > baseWidth ? 20 * scaleFactor : 20,
+    fontWeight: 600,
+    lineHeight: windowHeight > baseHeight ? 25.2 * scaleFactor : 25.2,
   },
   authorPriceView: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: 9,
-    marginBottom: 3,
+    marginTop: windowHeight > baseHeight ? 9 * scaleFactor : 9,
+    marginBottom: windowHeight > baseHeight ? 3 * scaleFactor : 3,
+  },
+  author: {
+    fontSize: windowWidth > baseWidth ? 12 * scaleFactor : 12,
+    fontWeight: 400,
+    lineHeight: windowHeight > baseHeight ? 15.12 * scaleFactor : 15.12,
+    color: "#B7B0B0",
+  },
+  price: {
+    fontSize: windowWidth > baseWidth ? 18 * scaleFactor : 18,
+    fontWeight: 600,
+    lineHeight: windowHeight > baseHeight ? 22.68 * scaleFactor : 22.68,
+  },
+  description: {
+    fontSize: windowWidth > baseWidth ? 18 * scaleFactor : 14,
+    fontWeight: 300,
+    lineHeight: windowHeight > baseHeight ? 20.64 * scaleFactor : 17.64,
   },
   readMoreText: { color: "#003096" },
   extraDetailsView: {
     backgroundColor: "#002A9621",
     borderRadius: 20,
-    paddingVertical: 18,
-    paddingHorizontal: 24,
-    rowGap: 9,
-    width: 330,
+    paddingVertical: windowHeight > baseHeight ? 18 * scaleFactor : 18,
+    paddingHorizontal: windowWidth > baseWidth ? 24 * scaleFactor : 24,
+    rowGap: windowHeight > baseHeight ? 9 * scaleFactor : 9,
+    width: windowWidth > baseWidth ? 330 * scaleFactor : 330,
     alignSelf: "center",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -93,24 +121,39 @@ const styles = StyleSheet.create({
   extraDetailsInnerView: {
     flexDirection: "column",
     justifyContent: "flex-start",
-    rowGap: 12,
+    rowGap: windowHeight > baseHeight ? 12 * scaleFactor : 12,
   },
   extraDetailsItemView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 3,
+    columnGap: windowWidth > baseWidth ? 3 * scaleFactor : 3,
     justifyContent: "flex-start",
   },
   skillsView: {
     flex: 2,
-    rowGap: 9,
-    paddingHorizontal: 9,
+    rowGap: windowHeight > baseHeight ? 9 * scaleFactor : 9,
+    paddingHorizontal: windowWidth > baseWidth ? 9 * scaleFactor : 9,
+  },
+  skillsText: {
+    fontSize: windowWidth > baseWidth ? 20 * scaleFactor : 20,
+    fontWeight: 600,
+    lineHeight: windowHeight > baseHeight ? 25.2 * scaleFactor : 25.2,
+    padding: windowWidth > baseWidth ? 6 * scaleFactor : 6,
   },
   skillChipsView: {
     flexDirection: "row",
     flexWrap: "wrap",
+    gap: windowWidth > baseWidth ? 6 * scaleFactor : 6,
+  },
+  skillChip: {
+    width: "auto",
+    height: windowHeight > baseHeight ? 30 * scaleFactor : 30,
     justifyContent: "center",
     alignItems: "center",
-    gap: 6,
+  },
+  chipText: {
+    fontSize: windowWidth > baseWidth ? 14 * scaleFactor : 14,
+    fontWeight: 400,
+    lineHeight: windowHeight > baseHeight ? 17.64 * scaleFactor : 17.64,
   },
 });
