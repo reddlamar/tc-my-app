@@ -7,6 +7,7 @@ import Section from "@/components/Section";
 import { Colors } from "@/constants/Colors";
 import { courses } from "@/database/Courses";
 import { Course } from "@/types/CourseType";
+import { scaleFactor } from "@/constants/WindowDimensions";
 
 type CourseProps = {
   course: Course;
@@ -67,9 +68,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: moderateScale(9),
   },
   image: {
-    width: scale(51),
-    height: verticalScale(51),
-    borderRadius: scale(5),
+    width: moderateScale(51, scaleFactor),
+    height: moderateScale(51, scaleFactor),
+    borderRadius: moderateScale(5),
   },
   course: {
     fontSize: moderateScale(18),

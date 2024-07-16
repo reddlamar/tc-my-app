@@ -67,7 +67,6 @@ export default notifications;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    // justifyContent: "center",
     rowGap: moderateScale(18),
     backgroundColor: "#fff",
   },

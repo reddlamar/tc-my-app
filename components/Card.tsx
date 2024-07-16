@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
   view: {
     rowGap: moderateScale(12),
     width: scale(130),
-    margin: scale(9),
+    margin: moderateScale(9),
     justifyContent: "center",
     alignItems: "center",
   },
@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: verticalScale(120),
+    height: moderateScale(120),
     borderRadius: moderateScale(10),
     aspectRatio: 1,
     resizeMode: "cover",
@@ -74,6 +74,7 @@ const styles = StyleSheet.create({
   bottomContentView: {
     rowGap: moderateScale(6),
     flexWrap: "wrap",
+    width: moderateScale(144),
   },
   titleView: {
     flexDirection: "row",
@@ -83,7 +84,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: moderateScale(10),
-    lineHeight: verticalScale(16.38),
+    lineHeight: moderateScale(16.38),
     fontWeight: "600",
   },
   starsView: { flexDirection: "row" },
@@ -99,7 +100,7 @@ const styles = StyleSheet.create({
   text: {
     fontSize: moderateScale(10),
     fontWeight: "400",
-    lineHeight: verticalScale(12.6),
+    lineHeight: moderateScale(12.6),
     color: "#B7B0B0",
   },
 });

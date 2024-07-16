@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    rowGap: moderateScale(12),
+    rowGap: moderateScale(18),
   },
   skipButtonText: {
     color: "#000",
@@ -168,7 +168,12 @@ const styles = StyleSheet.create({
     lineHeight: moderateScale(15.12),
     textAlign: "center",
   },
-  titleView: { rowGap: moderateScale(15), flex: 3 },
+  titleView: {
+    rowGap: moderateScale(15),
+    flex: 3,
+    justifyContent: "center",
+    alignItems: "center",
+  },
   skipButton: {
     backgroundColor: "#D9D9D9",
     borderRadius: moderateScale(10),
@@ -178,15 +183,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
     alignSelf: "flex-end",
     marginRight: moderateScale(9),
-    marginTop: verticalScale(6),
+    marginVertical: moderateScale(9),
   },
   titleColor: { color: Colors.light.text },
   imageView: {
-    marginHorizontal: moderateScale(12),
+    justifyContent: "center",
+    alignContent: "center",
   },
   image: {
-    width: "100%",
-    height: "auto",
+    width: moderateScale(349),
+    height: moderateScale(314),
     aspectRatio: 1,
     resizeMode: "contain",
   },
@@ -210,6 +216,7 @@ const styles = StyleSheet.create({
   buttonView: {
     flexDirection: "row",
     columnGap: moderateScale(9),
+    marginTop: moderateScale(21),
   },
   registerButton: {
     width: scale(168),

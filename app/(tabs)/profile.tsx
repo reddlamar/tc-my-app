@@ -5,13 +5,21 @@ import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Chip from "@/components/Chip";
+import { scaleFactor } from "@/constants/WindowDimensions";
 
 const Profile = () => {
+  const editIconSize = moderateScale(24, 1.5);
+
   return (
     <Container style={styles.container}>
       <Image source={require("@/assets/images/LR.png")} style={styles.image} />
       <Section style={styles.section}>
-        <Entypo name="edit" size={24} color="#C0C1C2" style={styles.editIcon} />
+        <Entypo
+          name="edit"
+          size={editIconSize}
+          color="#C0C1C2"
+          style={styles.editIcon}
+        />
         <View style={styles.topView}>
           <Text style={styles.nameHere}>Name Here</Text>
           <Text style={styles.tagLine}>Tag Line</Text>
@@ -53,12 +61,12 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    width: scale(100),
-    height: verticalScale(100),
+    width: moderateScale(100),
+    height: moderateScale(100),
     resizeMode: "cover",
-    borderRadius: moderateScale(100 / 2),
+    borderRadius: moderateScale(100 / 2, scaleFactor),
     position: "relative",
-    top: moderateScale(30),
+    top: moderateScale(30, scaleFactor),
     zIndex: 1,
   },
   section: {
@@ -68,7 +76,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     rowGap: verticalScale(24),
-    // marginHorizontal: moderateScale(50),
   },
   editIcon: {
     position: "absolute",

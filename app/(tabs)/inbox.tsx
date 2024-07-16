@@ -3,8 +3,8 @@ import React from "react";
 import Container from "@/components/Container";
 import Chip from "@/components/Chip";
 import SearchBar from "@/components/SearchBar";
-// import { scale, verticalScale } from "@/constants/WindowDimensions";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
+import { scaleFactor } from "@/constants/WindowDimensions";
 
 const Message = () => {
   return (
@@ -57,7 +57,7 @@ export default Inbox;
 const styles = StyleSheet.create({
   container: {
     alignItems: "center",
-    rowGap: verticalScale(15),
+    rowGap: moderateScale(15),
   },
   searchBarView: {
     justifyContent: "center",
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
     columnGap: moderateScale(15),
   },
   chip: {
-    width: scale(160),
+    width: moderateScale(160),
     height: verticalScale(45),
     justifyContent: "center",
     alignItems: "center",
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
   chipText: {
     fontSize: moderateScale(22),
     fontWeight: "600",
-    lineHeight: verticalScale(27.72),
+    lineHeight: moderateScale(27.72),
     textAlign: "center",
   },
   chatText: {
@@ -105,46 +105,46 @@ const styles = StyleSheet.create({
     marginVertical: verticalScale(30),
   },
   sender: {
-    fontSize: scale(18),
+    fontSize: moderateScale(18),
     fontWeight: "600",
-    lineHeight: verticalScale(22.68),
+    lineHeight: moderateScale(22.68),
     textAlign: "center",
   },
   text: {
-    fontSize: scale(12),
+    fontSize: moderateScale(12),
     fontWeight: "500",
-    lineHeight: verticalScale(15.12),
+    lineHeight: moderateScale(15.12),
     textAlign: "center",
   },
   timeView: {
     alignItems: "center",
-    paddingVertical: verticalScale(9),
-    rowGap: verticalScale(6),
+    paddingVertical: moderateScale(9),
+    rowGap: moderateScale(6),
   },
   counter: {
     width: scale(24),
     height: verticalScale(24),
-    borderRadius: scale(30),
+    borderRadius: moderateScale(30),
     backgroundColor: "#003096",
     justifyContent: "center",
     alignItems: "center",
   },
   counterText: {
     color: "#fff",
-    fontSize: scale(10),
+    fontSize: moderateScale(10),
     fontWeight: "600",
   },
   time: {
-    fontSize: scale(10),
+    fontSize: moderateScale(10),
     fontWeight: "600",
-    lineHeight: verticalScale(12.6),
+    lineHeight: moderateScale(12.6),
     textAlign: "center",
   },
   image: {
-    width: scale(60),
-    height: verticalScale(60),
+    width: moderateScale(50, scaleFactor),
+    height: moderateScale(50, scaleFactor),
     resizeMode: "cover",
-    borderRadius: scale(40),
+    borderRadius: moderateScale(40, scaleFactor),
   },
   scrollView: { paddingHorizontal: scale(30) },
 });

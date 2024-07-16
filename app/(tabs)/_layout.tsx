@@ -3,14 +3,12 @@ import React from "react";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Colors } from "@/constants/Colors";
-import { useColorScheme } from "@/hooks/useColorScheme";
 import Header from "@/components/Header";
-import { horizontalScale } from "@/constants/WindowDimensions";
 import { SafeAreaView, StyleSheet } from "react-native";
+import { moderateScale } from "react-native-size-matters";
 
 export default function TabLayout() {
-  const colorScheme = useColorScheme();
-  const iconSize = horizontalScale(24);
+  const iconSize = moderateScale(15);
 
   return (
     <SafeAreaView style={styles.view}>
@@ -28,6 +26,7 @@ export default function TabLayout() {
               <TabBarIcon
                 name={focused ? "home" : "home-outline"}
                 color={color}
+                size={iconSize}
               />
             ),
             tabBarShowLabel: false,
@@ -55,6 +54,11 @@ export default function TabLayout() {
                 name={focused ? "chatbox-ellipses" : "chatbox-ellipses-outline"}
                 color={color}
                 size={iconSize}
+                style={{
+                  alignItems: "center",
+                  justifyContent: "center",
+                  paddingRight: 12,
+                }}
               />
             ),
             headerShown: true,

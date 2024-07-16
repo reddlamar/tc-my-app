@@ -34,10 +34,14 @@ const HomeScreen = () => {
         </View>
         <View style={styles.topIconsView}>
           <Link href="/settings">
-            <Octicons name="gear" size={scale(24)} color="lightgray" />
+            <Octicons name="gear" size={moderateScale(24)} color="lightgray" />
           </Link>
           <Link href="/notifications">
-            <Octicons name="bell-fill" size={scale(24)} color="lightgray" />
+            <Octicons
+              name="bell-fill"
+              size={moderateScale(24)}
+              color="lightgray"
+            />
           </Link>
         </View>
       </View>
