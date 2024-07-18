@@ -1,9 +1,8 @@
 import { Course } from "@/types/CourseType";
 
-export const courses: Course[] = [
+export const courses = [
   {
-    id: 1,
-    image: require("@/assets/images/graphic-design.png"),
+    image: "graphic-design.png",
     title: "Graphic Design",
     rating: 5,
     author: "Syed Hasnain",
@@ -94,8 +93,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 2,
-    image: require("@/assets/images/wire-frame.png"),
+    image: "wire-frame.png",
     title: "Wire Frame",
     rating: 5,
     author: "Shoaib Hassan",
@@ -186,8 +184,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 3,
-    image: require("@/assets/images/web-design.png"),
+    image: "web-design.png",
     title: "Web Design",
     rating: 5,
     author: "Dawar Hanif",
@@ -278,8 +275,7 @@ export const courses: Course[] = [
     ],
   },
   {
-    id: 4,
-    image: require("@/assets/images/video-editing.png"),
+    image: "video-editing.png",
     title: "Video Editing",
     rating: 5,
     author: "Lamar Redd",

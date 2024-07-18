@@ -1,19 +1,37 @@
-import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useCallback } from "react";
+import {
+  ActivityIndicator,
+  FlatList,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
 import { Link } from "expo-router";
 import { Octicons } from "@expo/vector-icons";
+
 import Container from "@/components/Container";
 import SearchBar from "@/components/SearchBar";
 import Chip from "@/components/Chip";
 import Card from "@/components/Card";
-import { courses } from "@/database/Courses";
+
 import { Course } from "@/types/CourseType";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
+import { useGetCourses } from "@/hooks/useGetCourses";
+import { Colors } from "@/constants/Colors";
 
 const HomeScreen = () => {
-  const renderItem = useCallback((item: Course) => {
+  const { courses, error, isLoading } = useGetCourses();
+
+  const renderItem = useCallback((item: Course, index: number) => {
     return (
-      <Link href={`/details/${item.id}`}>
+      <Link
+        href={`/details/${item.id}`}
+        style={
+          index % 2 === 0
+            ? { marginRight: moderateScale(15) }
+            : { marginRight: 0 }
+        }
+      >
         <Card
           imageSource={item.image}
           title={item.title}
@@ -24,6 +42,14 @@ const HomeScreen = () => {
       </Link>
     );
   }, []);
+
+  if (isLoading) {
+    return <ActivityIndicator color={Colors.light.tint} />;
+  }
+
+  if (error) {
+    return <Text>{error}</Text>;
+  }
 
   return (
     <Container style={styles.container}>
@@ -65,7 +91,7 @@ const HomeScreen = () => {
       </View>
       <FlatList
         data={courses}
-        renderItem={({ item }) => renderItem(item)}
+        renderItem={({ item, index }) => renderItem(item, index)}
         keyExtractor={(item: Course) => `${item.id}`}
         numColumns={2}
         contentContainerStyle={styles.flatList}
@@ -146,7 +172,8 @@ const styles = StyleSheet.create({
     fontWeight: "500",
   },
   flatList: {
-    justifyContent: "center",
+    justifyContent: "space-between",
     alignItems: "center",
+    // columnGap: moderateScale(60),
   },
 });

@@ -1,8 +1,6 @@
-import { ImageURISource } from "react-native";
-
 export type Course = {
-  id: number;
-  image: ImageURISource;
+  id: string;
+  image: string;
   title: string;
   rating: number;
   author: string;

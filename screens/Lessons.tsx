@@ -22,7 +22,7 @@ const Lessons = () => {
         renderItem={({ item }) => renderItem(item)}
         contentContainerStyle={styles.flatList}
       />
-      <EnrollButton />
+      {course && <EnrollButton />}
     </View>
   );
 };

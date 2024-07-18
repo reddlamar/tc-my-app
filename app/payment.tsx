@@ -82,8 +82,8 @@ const Payment = () => {
   );
 
   return (
-    <Container style={styles.container}>
-      <ScrollView contentContainerStyle={styles.scrollContainer}>
+    <ScrollView contentContainerStyle={styles.scrollContainer}>
+      <Container style={styles.container}>
         <PaymentSteps
           activeStep1={activeCircle1}
           activeStep2={activeCircle2}
@@ -101,8 +101,8 @@ const Payment = () => {
         >
           <Text style={styles.buttonText}>Continue</Text>
         </PrimaryButton>
-      </ScrollView>
-    </Container>
+      </Container>
+    </ScrollView>
   );
 };
 
@@ -115,7 +115,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: horizontalScale(9),
   },
   scrollContainer: {
-    // height: "100%",
     paddingBottom: verticalScale(15),
     alignItems: "center",
     rowGap: verticalScale(9),
@@ -133,7 +132,6 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   button: {
-    width: "90%",
     marginBottom: verticalScale(3),
     marginTop: verticalScale(24),
     position: "relative",

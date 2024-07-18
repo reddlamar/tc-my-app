@@ -1,16 +1,30 @@
+import { useEffect, useContext, useState } from "react";
+
 import { Course } from "@/types/CourseType";
-import { useState, useEffect } from "react";
-import { courses } from "@/database/Courses";
-export const useGetCourse = (id: number) => {
-  const [course, setCourse] = useState<Course | null>(null);
+import { CourseContext } from "@/context/CourseContext";
+
+export const useGetCourse = (id: string) => {
+  const { course, courses, setCourse } = useContext(CourseContext);
+  const [error, setError] = useState<any>(null);
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
+  console.log("Courses", courses);
 
   useEffect(() => {
-    let foundCourse: Course | undefined;
-    foundCourse = courses.find((c) => c.id === id);
+    setIsLoading(true);
+
+    let foundCourse: Course | undefined = courses.find(
+      (c: Course) => c.id === id
+    );
+
     if (foundCourse) {
       setCourse(foundCourse);
+    } else {
+      setError("Can not find selected course.");
     }
+
+    setIsLoading(false);
   }, [id]);
 
-  return course;
+  return { course, error, isLoading };
 };

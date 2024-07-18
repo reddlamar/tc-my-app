@@ -1,11 +1,16 @@
-import { ScrollView, StyleSheet, Text, View } from "react-native";
-import React, { useContext, useEffect } from "react";
+import {
+  ActivityIndicator,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from "react-native";
+import React from "react";
 import Rating from "@/components/Rating";
 import Chip from "@/components/Chip";
 import { useGetCourse } from "@/hooks/useGetCourse";
 import EnrollButton from "@/components/EnrollButton";
 import CourseDetailsItems from "@/components/CourseDetailsItems";
-import { CourseContext } from "@/context/CourseContext";
 import {
   baseWidth,
   baseHeight,
@@ -15,12 +20,25 @@ import {
 } from "@/constants/WindowDimensions";
 
 const Overview = ({ route }: any) => {
-  const course = useGetCourse(route?.params?.courseID ?? 1);
-  const { setCourse } = useContext(CourseContext);
+  const { course, error, isLoading } = useGetCourse(route?.params?.id);
 
-  useEffect(() => {
-    setCourse(course);
-  }, [course]);
+  if (error) {
+    return (
+      <View style={styles.errorAndLoadingView}>
+        <Text style={styles.errorText}>{error}</Text>
+      </View>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <View style={styles.errorAndLoadingView}>
+        <ActivityIndicator />
+      </View>
+    );
+  }
+
+  console.log("course", course);
 
   return (
     <ScrollView>
@@ -72,6 +90,8 @@ const Overview = ({ route }: any) => {
 export default Overview;
 
 const styles = StyleSheet.create({
+  errorAndLoadingView: { justifyContent: "center", alignItems: "center" },
+  errorText: { fontSize: 18 },
   detailsView: {
     flex: 5,
     paddingHorizontal: windowWidth > baseWidth ? 9 * scaleFactor : 9,

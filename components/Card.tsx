@@ -6,7 +6,7 @@ import { Colors } from "@/constants/Colors";
 import Rating from "./Rating";
 
 type CardProps = {
-  imageSource: ImageURISource;
+  imageSource: string;
   title: string;
   rating: number;
   author: string;
@@ -19,7 +19,12 @@ const Card = (props: CardProps) => {
   return (
     <View style={styles.view}>
       <View style={styles.imageView}>
-        <Image source={imageSource} style={styles.image} />
+        <Image
+          source={{
+            uri: imageSource,
+          }}
+          style={styles.image}
+        />
       </View>
       <View style={styles.bottomContentView}>
         <View style={styles.titleView}>
@@ -36,9 +41,8 @@ const Card = (props: CardProps) => {
             </Text>
             <Progress.Bar
               progress={progressPercentage / 100}
-              style={{ width: 140 }}
-              // width={"100%"}
               color={Colors.light.tint}
+              width={moderateScale(150)}
             />
           </View>
         </View>

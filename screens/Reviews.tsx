@@ -39,7 +39,7 @@ const Reviews = () => {
         contentContainerStyle={styles.flatList}
         renderItem={({ item }) => renderItem(item)}
       />
-      <EnrollButton />
+      {course && <EnrollButton />}
     </Container>
   );
 };

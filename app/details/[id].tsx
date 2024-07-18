@@ -11,7 +11,7 @@ const Tab = createMaterialTopTabNavigator();
 
 const CourseDetails = () => {
   const { id } = useLocalSearchParams();
-  const courseID = typeof id === "string" ? parseInt(id) : null;
+  console.log("id", id);
 
   return (
     <Container>
@@ -20,7 +20,7 @@ const CourseDetails = () => {
         <Tab.Screen
           name="course-overview"
           component={Overview}
-          initialParams={{ courseID }}
+          initialParams={{ id }}
           options={{
             tabBarLabel: "Overview",
           }}
@@ -28,7 +28,7 @@ const CourseDetails = () => {
         <Tab.Screen
           name="lessons"
           component={Lessons}
-          initialParams={{ courseID }}
+          initialParams={{ id }}
           options={{
             tabBarLabel: "Lessons",
           }}
@@ -36,7 +36,7 @@ const CourseDetails = () => {
         <Tab.Screen
           name="reviews"
           component={Reviews}
-          initialParams={{ courseID }}
+          initialParams={{ id }}
           options={{ tabBarLabel: "Reviews" }}
         />
       </Tab.Navigator>

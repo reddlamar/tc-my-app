@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, Image, FlatList } from "react-native";
-import React, { useCallback } from "react";
+import React, { useCallback, useContext } from "react";
 import * as Progress from "react-native-progress";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 import Container from "../../components/Container";
 import Section from "@/components/Section";
 import { Colors } from "@/constants/Colors";
-import { courses } from "@/database/Courses";
 import { Course } from "@/types/CourseType";
 import { scaleFactor } from "@/constants/WindowDimensions";
+import { CourseContext } from "@/context/CourseContext";
 
 type CourseProps = {
   course: Course;
@@ -16,7 +16,7 @@ type CourseProps = {
 const CourseItem = ({ course }: CourseProps) => {
   return (
     <Section style={styles.section}>
-      <Image source={course.image} style={styles.image} />
+      <Image source={{ uri: course.image }} style={styles.image} />
       <View>
         <Text style={styles.course}>{course.title}</Text>
         <Text style={styles.author}>{course.author}</Text>
@@ -36,6 +36,8 @@ const CourseItem = ({ course }: CourseProps) => {
 };
 
 const MyCourses = () => {
+  const { courses } = useContext(CourseContext);
+
   const renderItem = useCallback(
     (item: Course) => <CourseItem course={item} />,
     []
