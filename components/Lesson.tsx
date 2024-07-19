@@ -9,7 +9,7 @@ import Animated, {
   withTiming,
 } from "react-native-reanimated";
 import { Chapter } from "@/types/CourseType";
-import { verticalScale } from "@/constants/WindowDimensions";
+import { moderateScale } from "react-native-size-matters";
 
 type LessonProps = {
   chapter: Chapter;
@@ -42,7 +42,7 @@ const Lesson = ({ chapter }: LessonProps) => {
             height.value = 0;
             opacity.value = 0;
           } else {
-            height.value = 175;
+            height.value = moderateScale(175);
             opacity.value = 1;
           }
         }}
@@ -65,6 +65,6 @@ const Lesson = ({ chapter }: LessonProps) => {
 export default Lesson;
 
 const styles = StyleSheet.create({
-  container: { rowGap: verticalScale(12), alignItems: "center" },
-  section: { height: verticalScale(175) },
+  container: { rowGap: moderateScale(12), alignItems: "center" },
+  section: { height: moderateScale(175) },
 });

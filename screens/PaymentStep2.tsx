@@ -4,10 +4,10 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import Section from "@/components/Section";
 import { AntDesign } from "@expo/vector-icons";
 import { TextInput } from "react-native-gesture-handler";
-import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 
 const PaymentOptions = ({ onPress }: any) => {
-  const iconSize = horizontalScale(24);
+  const iconSize = moderateScale(24);
   return (
     <>
       <Section style={styles.paymentSection}>
@@ -83,39 +83,42 @@ export default PaymentStep2;
 const styles = StyleSheet.create({
   container: { rowGap: verticalScale(18), marginBottom: verticalScale(45) },
   paymentStep2Title: {
-    fontSize: horizontalScale(22),
+    fontSize: moderateScale(22),
     fontWeight: "600",
     lineHeight: verticalScale(27.72),
   },
-  paymentSection: { paddingHorizontal: 12 },
+  paymentSection: { paddingHorizontal: moderateScale(12) },
   paymentView: {
     flexDirection: "row",
-    columnGap: horizontalScale(9),
+    columnGap: moderateScale(9),
   },
   paymentText: {
-    fontSize: horizontalScale(16),
+    fontSize: moderateScale(16),
     fontWeight: "500",
     lineHeight: verticalScale(20.16),
   },
   cardPaymentTextInput: {
-    width: horizontalScale(352),
+    width: moderateScale(352),
     height: verticalScale(68),
     backgroundColor: "#E5EAF4",
-    paddingHorizontal: horizontalScale(9),
+    paddingHorizontal: moderateScale(9),
     borderColor: "#CDCDCD",
-    borderRadius: horizontalScale(5),
+    borderRadius: moderateScale(5),
   },
   cardPaymentText1: {
-    fontSize: horizontalScale(18),
-    fontWeight: 500,
+    fontSize: moderateScale(18),
+    fontWeight: "500",
     lineHeight: verticalScale(22.68),
     borderWidth: 1,
     borderColor: "#CDCDCD",
-    borderRadius: horizontalScale(5),
+    borderRadius: moderateScale(5),
   },
-  extraCardPaymentDetailsView: { flexDirection: "row", columnGap: 24 },
+  extraCardPaymentDetailsView: {
+    flexDirection: "row",
+    columnGap: moderateScale(24),
+  },
   cardPaymentText2: {
-    width: horizontalScale(165),
+    width: moderateScale(165),
     height: verticalScale(68),
   },
 });
