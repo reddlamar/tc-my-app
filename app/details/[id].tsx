@@ -11,7 +11,6 @@ const Tab = createMaterialTopTabNavigator();
 
 const CourseDetails = () => {
   const { id } = useLocalSearchParams();
-  console.log("id", id);
 
   return (
     <Container>

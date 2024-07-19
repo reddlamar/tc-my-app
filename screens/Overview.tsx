@@ -38,8 +38,6 @@ const Overview = ({ route }: any) => {
     );
   }
 
-  console.log("course", course);
-
   return (
     <ScrollView>
       <View style={styles.detailsView}>

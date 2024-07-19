@@ -174,6 +174,5 @@ const styles = StyleSheet.create({
   flatList: {
     justifyContent: "space-between",
     alignItems: "center",
-    // columnGap: moderateScale(60),
   },
 });

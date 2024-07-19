@@ -8,8 +8,6 @@ export const useGetCourse = (id: string) => {
   const [error, setError] = useState<any>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  console.log("Courses", courses);
-
   useEffect(() => {
     setIsLoading(true);
 
