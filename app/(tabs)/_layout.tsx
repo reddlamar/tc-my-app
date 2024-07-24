@@ -56,11 +56,7 @@ export default function TabLayout() {
                 name={focused ? "chatbox-ellipses" : "chatbox-ellipses-outline"}
                 color={color}
                 size={iconSize}
-                style={{
-                  alignItems: "center",
-                  justifyContent: "center",
-                  paddingRight: 12,
-                }}
+                style={styles.chatBoxIcon}
               />
             ),
             headerShown: true,
@@ -97,5 +93,10 @@ export default function TabLayout() {
 const styles = StyleSheet.create({
   view: {
     flex: 1,
+  },
+  chatBoxIcon: {
+    alignItems: "center",
+    justifyContent: "center",
+    paddingRight: moderateScale(12),
   },
 });
