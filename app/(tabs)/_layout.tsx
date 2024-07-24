@@ -1,14 +1,16 @@
-import { Tabs } from "expo-router";
+import { Tabs, useNavigation } from "expo-router";
 import React from "react";
 import { TabBarIcon } from "@/components/navigation/TabBarIcon";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 import { Colors } from "@/constants/Colors";
 import Header from "@/components/Header";
-import { SafeAreaView, StyleSheet } from "react-native";
+import { Button, SafeAreaView, StyleSheet } from "react-native";
 import { moderateScale } from "react-native-size-matters";
+import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
 
 export default function TabLayout() {
   const iconSize = moderateScale(15);
+  const navigation = useNavigation<NativeStackNavigatorProps>();
 
   return (
     <SafeAreaView style={styles.view}>
@@ -76,7 +78,15 @@ export default function TabLayout() {
               />
             ),
             headerShown: true,
-            header: () => <Header title="Profile" screen="index" />,
+            header: () => (
+              <Header title="Profile" screen="index">
+                <Button
+                  title="Sign Out"
+                  onPress={() => navigation.navigate("sign-in")}
+                  color={Colors.light.tint}
+                />
+              </Header>
+            ),
           }}
         />
       </Tabs>
