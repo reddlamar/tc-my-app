@@ -1,16 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 
-import {
-  DocumentData,
-  QueryDocumentSnapshot,
-  collection,
-  getDocs,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { DocumentData, QueryDocumentSnapshot } from "firebase/firestore";
 
 import { CourseContext } from "@/context/CourseContext";
-import { firebaseDB } from "@/features/firebase/Config";
+import { getCoursesOrderedByTitle } from "@/features/firebase/firestore/Courses";
 
 export const useGetCourses = () => {
   const { courses, setCourses } = useContext(CourseContext);
@@ -23,10 +16,8 @@ export const useGetCourses = () => {
     async function getCourses() {
       setIsLoading(true);
       try {
-        const coursesRef = collection(firebaseDB, "courses");
-        const coursesQuery = query(coursesRef, orderBy("title"));
-        const querySnapshot = await getDocs(coursesQuery);
-        const courseCollection = mapCourses(querySnapshot.docs);
+        const docs = await getCoursesOrderedByTitle();
+        const courseCollection = mapCourses(docs);
         setCourses(courseCollection);
       } catch (e) {
         console.log("Error getting courses: ", e);
