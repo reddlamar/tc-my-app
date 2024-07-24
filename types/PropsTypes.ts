@@ -45,6 +45,14 @@ export type CourseProps = {
   course: Course;
 };
 
+export type ConfirmPasswordInputProps = Pick<
+  PasswordInputProps,
+  | "confirmPassword"
+  | "hidePassword"
+  | "onChangeConfirmPassword"
+  | "onPressHidePassword"
+>;
+
 export type CustomButtonProps = React.ComponentProps<typeof Pressable> & {
   onPress: (e: GestureResponderEvent) => void;
   style?: StyleProp<ViewStyle>;
@@ -78,7 +86,7 @@ export type LoadingIndicatorProps = {
   size?: number;
 };
 
-export type PasswordProps = {
+export type PasswordInputProps = {
   password: string;
   onChangePassword: (text: string) => void;
   passwordLabel?: string;

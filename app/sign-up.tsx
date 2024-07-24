@@ -2,7 +2,7 @@ import { ScrollView, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
 import { moderateScale, verticalScale } from "react-native-size-matters";
 import Register from "@/components/Register";
-import Input from "@/components/Input";
+import RequiredInput from "@/components/RequiredInput";
 import PasswordInput from "@/components/PasswordInput";
 
 const SignUp = () => {
@@ -25,17 +25,19 @@ const SignUp = () => {
         registerHereHref="/sign-in"
         children={
           <View style={styles.inputView}>
-            <Input
+            <RequiredInput
               label="Full Name"
               value={fullName}
               onChangeText={setFullName}
               autoCapitalize="none"
+              isValid={false}
             />
-            <Input
+            <RequiredInput
               label="Email"
               value={email}
               onChangeText={setEmail}
               autoCapitalize="none"
+              isValid={false}
             />
             <PasswordInput
               password={password}

@@ -1,64 +1,34 @@
+import React from "react";
 import { StyleSheet, View } from "react-native";
-import React, { useCallback } from "react";
+
 import { Ionicons } from "@expo/vector-icons";
-import Input from "./Input";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
-import { PasswordProps } from "@/types/PropsTypes";
 
-const PasswordInput = (props: PasswordProps) => {
-  const {
-    password,
-    onChangePassword,
-    passwordLabel,
-    confirmPassword,
-    onChangeConfirmPassword,
-    hidePassword,
-    onPressHidePassword,
-  } = props;
+import RequiredInput from "./RequiredInput";
 
-  const renderConfirmPasswordContent = useCallback(() => {
-    if (
-      confirmPassword !== undefined &&
-      onChangeConfirmPassword !== undefined
-    ) {
-      return (
-        <View style={styles.passwordView}>
-          <Input
-            label="Confirm Password"
-            hidePassword={hidePassword}
-            value={confirmPassword}
-            onChangeText={onChangeConfirmPassword}
-          />
-          {hidePassword ? (
-            <Ionicons
-              name="eye-off"
-              size={moderateScale(24)}
-              color="black"
-              style={styles.eye}
-              onPress={() => onPressHidePassword(!hidePassword)}
-            />
-          ) : (
-            <Ionicons
-              name="eye"
-              size={moderateScale(24)}
-              color="black"
-              style={styles.eye}
-              onPress={() => onPressHidePassword(!hidePassword)}
-            />
-          )}
-        </View>
-      );
-    }
-  }, [confirmPassword]);
+import {
+  ConfirmPasswordInputProps,
+  PasswordInputProps,
+} from "@/types/PropsTypes";
 
-  return (
-    <>
+const ConfirmPasswordInput = ({
+  confirmPassword,
+  hidePassword,
+  onChangeConfirmPassword,
+  onPressHidePassword,
+}: ConfirmPasswordInputProps) => {
+  const showConfirmPasswordInput =
+    confirmPassword !== undefined && onChangeConfirmPassword !== undefined;
+
+  if (showConfirmPasswordInput) {
+    return (
       <View style={styles.passwordView}>
-        <Input
-          label={passwordLabel ?? "Password"}
+        <RequiredInput
+          label="Confirm Password"
           hidePassword={hidePassword}
-          value={password}
-          onChangeText={onChangePassword}
+          value={confirmPassword}
+          onChangeText={onChangeConfirmPassword}
+          isValid={false}
         />
         {hidePassword ? (
           <Ionicons
@@ -78,7 +48,55 @@ const PasswordInput = (props: PasswordProps) => {
           />
         )}
       </View>
-      {renderConfirmPasswordContent()}
+    );
+  }
+};
+
+const PasswordInput = (props: PasswordInputProps) => {
+  const {
+    password,
+    onChangePassword,
+    passwordLabel,
+    confirmPassword,
+    onChangeConfirmPassword,
+    hidePassword,
+    onPressHidePassword,
+  } = props;
+
+  return (
+    <>
+      <View style={styles.passwordView}>
+        <RequiredInput
+          label={passwordLabel ?? "Password"}
+          hidePassword={hidePassword}
+          value={password}
+          onChangeText={onChangePassword}
+          isValid={false}
+        />
+        {hidePassword ? (
+          <Ionicons
+            name="eye-off"
+            size={moderateScale(24)}
+            color="black"
+            style={styles.eye}
+            onPress={() => onPressHidePassword(!hidePassword)}
+          />
+        ) : (
+          <Ionicons
+            name="eye"
+            size={moderateScale(24)}
+            color="black"
+            style={styles.eye}
+            onPress={() => onPressHidePassword(!hidePassword)}
+          />
+        )}
+      </View>
+      <ConfirmPasswordInput
+        confirmPassword={confirmPassword}
+        hidePassword={hidePassword}
+        onChangeConfirmPassword={onChangeConfirmPassword}
+        onPressHidePassword={onPressHidePassword}
+      />
     </>
   );
 };
