@@ -10,10 +10,13 @@ import { SimpleLineIcons } from "@expo/vector-icons";
 import Container from "../components/Container";
 import Section from "../components/Section";
 import { Colors } from "../constants/Colors";
-import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 
 const settings = () => {
-  const iconSize = horizontalScale(24);
+  const iconSize = moderateScale(24);
 
   return (
     <Container style={styles.container}>
@@ -126,16 +129,19 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-start",
   },
-  imageContainer: { position: "relative", top: verticalScale(25), zIndex: 1 },
+  imageContainer: {
+    position: "relative",
+    zIndex: 1,
+  },
   image: {
-    width: horizontalScale(100),
-    height: verticalScale(100),
+    width: moderateScale(100),
+    height: moderateVerticalScale(100),
     resizeMode: "cover",
-    borderRadius: horizontalScale(90),
+    borderRadius: moderateScale(90),
   },
   section: {
-    rowGap: verticalScale(30),
-    paddingHorizontal: horizontalScale(9),
+    rowGap: moderateVerticalScale(30),
+    paddingHorizontal: moderateScale(9),
   },
   view: {
     flexDirection: "row",
@@ -145,6 +151,6 @@ const styles = StyleSheet.create({
   innerView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: horizontalScale(9),
+    columnGap: moderateScale(9),
   },
 });

@@ -1,11 +1,5 @@
 import React, { useCallback } from "react";
-import {
-  ActivityIndicator,
-  FlatList,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import { Link } from "expo-router";
 import { Octicons } from "@expo/vector-icons";
 
@@ -13,11 +7,12 @@ import Container from "@/components/Container";
 import SearchBar from "@/components/SearchBar";
 import Chip from "@/components/Chip";
 import Card from "@/components/Card";
+import ErrorMessage from "@/components/ErrorMessage";
+import LoadingIndicator from "@/components/LoadingIndicator";
 
 import { Course } from "@/types/CourseType";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 import { useGetCourses } from "@/hooks/useGetCourses";
-import { Colors } from "@/constants/Colors";
 
 const HomeScreen = () => {
   const { courses, error, isLoading } = useGetCourses();
@@ -44,11 +39,11 @@ const HomeScreen = () => {
   }, []);
 
   if (isLoading) {
-    return <ActivityIndicator color={Colors.light.tint} />;
+    return <LoadingIndicator text="Getting Courses..." />;
   }
 
   if (error) {
-    return <Text>{error}</Text>;
+    return <ErrorMessage error={error} />;
   }
 
   return (

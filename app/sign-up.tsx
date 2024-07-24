@@ -1,6 +1,6 @@
 import { ScrollView, StyleSheet, View } from "react-native";
 import React, { useState } from "react";
-import { scale, moderateScale, verticalScale } from "react-native-size-matters";
+import { moderateScale, verticalScale } from "react-native-size-matters";
 import Register from "@/components/Register";
 import Input from "@/components/Input";
 import PasswordInput from "@/components/PasswordInput";
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
   },
   eye: {
     position: "absolute",
-    right: scale(9),
+    right: moderateScale(9),
     top: verticalScale(29),
   },
   forgetPasswordText: {

@@ -4,14 +4,9 @@ import { Ionicons } from "@expo/vector-icons";
 import { FontAwesome6 } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import {
-  baseWidth,
-  baseHeight,
-  windowHeight,
-  windowWidth,
-  scaleFactor,
-  horizontalScale,
-  verticalScale,
-} from "@/constants/WindowDimensions";
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 
 const CourseDetailsItems = () => {
   return (
@@ -20,7 +15,7 @@ const CourseDetailsItems = () => {
         <View style={styles.extraDetailsItemView}>
           <FontAwesome6
             name="book"
-            size={horizontalScale(20)}
+            size={moderateScale(20)}
             color={Colors.light.tint}
           />
           <Text>80+ Lectures</Text>
@@ -28,7 +23,7 @@ const CourseDetailsItems = () => {
         <View style={styles.extraDetailsItemView}>
           <Ionicons
             name="time"
-            size={horizontalScale(20)}
+            size={moderateScale(20)}
             color={Colors.light.tint}
           />
           <Text>8 Weeks</Text>
@@ -38,7 +33,7 @@ const CourseDetailsItems = () => {
         <View style={styles.extraDetailsItemView}>
           <FontAwesome6
             name="certificate"
-            size={horizontalScale(20)}
+            size={moderateScale(20)}
             color={Colors.light.tint}
           />
           <Text>Certificates</Text>
@@ -46,7 +41,7 @@ const CourseDetailsItems = () => {
         <View style={styles.extraDetailsItemView}>
           <Ionicons
             name="pricetag"
-            size={horizontalScale(20)}
+            size={moderateScale(20)}
             color={Colors.light.tint}
           />
           <Text>10% Off</Text>
@@ -61,11 +56,11 @@ export default CourseDetailsItems;
 const styles = StyleSheet.create({
   extraDetailsView: {
     backgroundColor: "#002A9621",
-    borderRadius: horizontalScale(20),
-    paddingVertical: verticalScale(21),
-    paddingHorizontal: horizontalScale(27),
-    rowGap: verticalScale(12),
-    width: horizontalScale(360),
+    borderRadius: moderateScale(20),
+    paddingVertical: moderateVerticalScale(21),
+    paddingHorizontal: moderateScale(27),
+    rowGap: moderateVerticalScale(12),
+    width: moderateScale(330),
     alignSelf: "center",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -73,12 +68,12 @@ const styles = StyleSheet.create({
   extraDetailsInnerView: {
     flexDirection: "column",
     justifyContent: "flex-start",
-    rowGap: verticalScale(15),
+    rowGap: moderateVerticalScale(15),
   },
   extraDetailsItemView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: horizontalScale(3),
+    columnGap: moderateScale(3),
     justifyContent: "flex-start",
   },
 });

@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
-import { ButtonLinkProps } from "@/types/PropsType";
+import { ButtonLinkProps } from "@/types/PropsTypes";
 import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const LinkButton = ({ href, style, children }: ButtonLinkProps) => {

@@ -12,7 +12,11 @@ import PrimaryButton from "@/components/PrimaryButton";
 import PaymentStep1 from "@/screens/PaymentStep1";
 import PaymentStep2 from "@/screens/PaymentStep2";
 import PaymentSteps from "@/components/PaymentSteps";
-import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
+import { windowHeight, windowWidth } from "@/constants/WindowDimensions";
 
 const PaymentStep3 = () => {
   return (
@@ -109,37 +113,41 @@ const Payment = () => {
 export default Payment;
 
 const styles = StyleSheet.create({
+  scrollContainer: {
+    paddingBottom: moderateVerticalScale(15),
+    alignItems: "center",
+    rowGap: moderateVerticalScale(9),
+    width: windowWidth,
+    height: windowHeight,
+  },
   container: {
     alignItems: "center",
-    rowGap: verticalScale(21),
-    paddingHorizontal: horizontalScale(9),
-  },
-  scrollContainer: {
-    paddingBottom: verticalScale(15),
-    alignItems: "center",
-    rowGap: verticalScale(9),
+    rowGap: moderateVerticalScale(21),
+    paddingHorizontal: moderateScale(9),
+    width: windowWidth,
+    height: windowHeight,
   },
   transactionCompleteText: {
-    fontSize: horizontalScale(22),
+    fontSize: moderateScale(22),
     fontWeight: "600",
-    lineHeight: verticalScale(27.72),
+    lineHeight: moderateVerticalScale(27.72),
     textAlign: "center",
     color: "#000",
   },
   image: {
-    width: horizontalScale(250),
-    height: verticalScale(322),
+    width: moderateScale(250),
+    height: moderateVerticalScale(322),
     resizeMode: "contain",
   },
   button: {
-    marginBottom: verticalScale(3),
-    marginTop: verticalScale(24),
+    marginBottom: moderateVerticalScale(3),
+    marginTop: moderateVerticalScale(24),
     position: "relative",
     bottom: 0,
   },
   buttonText: {
     color: "#fff",
-    fontSize: horizontalScale(29),
+    fontSize: moderateScale(29),
     fontWeight: "600",
     textAlign: "center",
   },

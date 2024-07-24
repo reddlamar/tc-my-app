@@ -3,7 +3,10 @@ import React, { useContext } from "react";
 import CourseDetailsItems from "@/components/CourseDetailsItems";
 import Rating from "@/components/Rating";
 import { CourseContext } from "@/context/CourseContext";
-import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 
 const PaymentStep1 = () => {
   const { course } = useContext(CourseContext);
@@ -21,7 +24,9 @@ const PaymentStep1 = () => {
             </Text>
           </View>
         </View>
-        <CourseDetailsItems />
+        <View>
+          <CourseDetailsItems />
+        </View>
         <View style={styles.courseDetailsView}>
           <View style={styles.courseDetailsInnerView}>
             <View style={styles.courseDetailsTitleView}>
@@ -61,72 +66,75 @@ const PaymentStep1 = () => {
 export default PaymentStep1;
 
 const styles = StyleSheet.create({
-  container: { rowGap: verticalScale(21), alignItems: "center" },
+  container: {
+    rowGap: moderateVerticalScale(21),
+    alignItems: "center",
+  },
   topView: {
-    rowGap: verticalScale(21),
+    rowGap: moderateVerticalScale(21),
     justifyContent: "center",
-    paddingHorizontal: horizontalScale(15),
   },
   titleView: {
-    rowGap: verticalScale(15),
+    rowGap: moderateVerticalScale(15),
   },
   title: {
-    fontSize: horizontalScale(22),
+    fontSize: moderateScale(22),
     fontWeight: "600",
-    lineHeight: verticalScale(27.72),
+    lineHeight: moderateVerticalScale(27.72),
     textAlign: "center",
     alignSelf: "flex-start",
   },
   subTitle: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: 3,
+    columnGap: moderateScale(3),
   },
   subTitleText: {
-    fontSize: horizontalScale(20),
+    fontSize: moderateScale(20),
   },
   subTitleText1: {
     fontWeight: "400",
-    lineHeight: verticalScale(25.2),
+    lineHeight: moderateVerticalScale(25.2),
     textAlign: "center",
   },
   subTitleText2: { fontWeight: "600" },
   courseDetailsView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: horizontalScale(9),
+    columnGap: moderateScale(9),
+    marginHorizontal: moderateScale(9),
   },
-  courseDetailsInnerView: { rowGap: verticalScale(9) },
+  courseDetailsInnerView: { rowGap: moderateVerticalScale(9) },
   courseDetailsTitleView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: horizontalScale(21),
+    columnGap: moderateScale(21),
   },
   purchaseDetailsView: {
-    width: horizontalScale(352),
-    height: verticalScale(97),
-    borderWidth: horizontalScale(1),
-    borderRadius: horizontalScale(20),
+    width: moderateScale(340),
+    height: moderateVerticalScale(97),
+    borderWidth: moderateScale(1),
+    borderRadius: moderateScale(20),
     borderColor: "#D9E0EF",
-    paddingVertical: verticalScale(12),
-    paddingHorizontal: horizontalScale(18),
+    paddingVertical: moderateVerticalScale(12),
+    paddingHorizontal: moderateScale(18),
   },
   purchaseDetailsText: {
     position: "absolute",
-    top: verticalScale(-8),
-    left: horizontalScale(12),
+    top: moderateVerticalScale(-8),
+    left: moderateScale(12),
     backgroundColor: "#fff",
-    marginHorizontal: horizontalScale(12),
-    paddingHorizontal: horizontalScale(3),
+    marginHorizontal: moderateScale(12),
+    paddingHorizontal: moderateScale(3),
   },
   purchaseDetailsInnerView: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: verticalScale(9),
+    marginTop: moderateVerticalScale(9),
   },
   purchaseDetailsItemView: {
-    rowGap: verticalScale(24),
+    rowGap: moderateVerticalScale(24),
     justifyContent: "center",
   },
 });

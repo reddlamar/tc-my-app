@@ -3,7 +3,10 @@ import React from "react";
 import PrimaryButton from "./PrimaryButton";
 import { useNavigation } from "expo-router";
 import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
-import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 
 const EnrollButton = () => {
   const navigation = useNavigation<NativeStackNavigatorProps>();
@@ -23,17 +26,17 @@ export default EnrollButton;
 
 const styles = StyleSheet.create({
   buttonStyle: {
-    width: horizontalScale(336),
-    height: verticalScale(40),
+    width: moderateScale(336),
+    height: moderateVerticalScale(40),
     justifyContent: "center",
     alignSelf: "center",
-    marginVertical: verticalScale(9),
-    paddingHorizontal: horizontalScale(9),
+    marginVertical: moderateVerticalScale(9),
+    paddingHorizontal: moderateScale(9),
   },
   buttonText: {
     color: "#fff",
-    fontSize: horizontalScale(20),
-    lineHeight: verticalScale(25.2),
+    fontSize: moderateScale(20),
+    lineHeight: moderateVerticalScale(25.2),
     textAlign: "center",
   },
 });

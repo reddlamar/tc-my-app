@@ -6,7 +6,10 @@ import Rating from "@/components/Rating";
 import Container from "@/components/Container";
 import EnrollButton from "@/components/EnrollButton";
 import { CourseContext } from "@/context/CourseContext";
-import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 
 const Reviews = () => {
   const { course } = useContext(CourseContext);
@@ -49,27 +52,27 @@ export default Reviews;
 const styles = StyleSheet.create({
   container: { flexDirection: "row", justifyContent: "space-between" },
   flatList: {
-    rowGap: verticalScale(9),
+    rowGap: moderateVerticalScale(9),
     alignItems: "center",
-    paddingVertical: verticalScale(15),
+    paddingVertical: moderateVerticalScale(15),
   },
-  section: { padding: horizontalScale(9), rowGap: verticalScale(9) },
+  section: { padding: moderateScale(9), rowGap: moderateVerticalScale(9) },
   topView: {
     justifyContent: "space-between",
     flexDirection: "row",
     alignItems: "center",
-    columnGap: horizontalScale(6),
+    columnGap: moderateScale(6),
   },
   circleView: {
-    borderRadius: horizontalScale(50),
+    borderRadius: moderateScale(50),
     backgroundColor: "#D9D9D9",
-    width: horizontalScale(47),
-    height: verticalScale(47),
+    width: moderateScale(47),
+    height: moderateVerticalScale(47),
   },
-  userName: { fontWeight: "600", fontSize: horizontalScale(12) },
+  userName: { fontWeight: "600", fontSize: moderateScale(12) },
   userType: {
     fontWeight: "600",
-    fontSize: horizontalScale(10),
+    fontSize: moderateScale(10),
     color: "#B7B0B0",
   },
 });

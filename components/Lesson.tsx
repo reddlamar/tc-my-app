@@ -8,12 +8,8 @@ import Animated, {
   useSharedValue,
   withTiming,
 } from "react-native-reanimated";
-import { Chapter } from "@/types/CourseType";
 import { moderateScale } from "react-native-size-matters";
-
-type LessonProps = {
-  chapter: Chapter;
-};
+import { LessonProps } from "@/types/PropsTypes";
 
 const Lesson = ({ chapter }: LessonProps) => {
   const [expanded, setExpanded] = useState(false);
@@ -48,13 +44,13 @@ const Lesson = ({ chapter }: LessonProps) => {
         }}
       >
         <Section style={{ alignItems: "center" }}>
-          <Text>{chapter.title}</Text>
+          <Text style={styles.tile}>{chapter.title}</Text>
         </Section>
       </Pressable>
       {expanded && (
         <Animated.View style={animatedStyle}>
           <Section style={styles.section}>
-            <Text>{chapter.notes}</Text>
+            <Text style={styles.notes}>{chapter.notes}</Text>
           </Section>
         </Animated.View>
       )}
@@ -66,5 +62,7 @@ export default Lesson;
 
 const styles = StyleSheet.create({
   container: { rowGap: moderateScale(12), alignItems: "center" },
-  section: { height: moderateScale(175) },
+  section: { height: moderateScale(175), padding: moderateScale(9) },
+  tile: { fontSize: moderateScale(15), fontWeight: "bold" },
+  notes: { fontSize: moderateScale(12) },
 });

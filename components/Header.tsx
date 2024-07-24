@@ -4,14 +4,7 @@ import { useNavigation } from "expo-router";
 import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
 import { Ionicons } from "@expo/vector-icons";
 import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
-
-type HeaderProps = {
-  screen?: string;
-  title?: string;
-  iconColor?: string;
-  children?: React.ReactNode;
-  style?: ViewStyle;
-};
+import { HeaderProps } from "@/types/PropsTypes";
 
 const Header = ({ title, iconColor, screen, children, style }: HeaderProps) => {
   const navigation = useNavigation<NativeStackNavigatorProps>();

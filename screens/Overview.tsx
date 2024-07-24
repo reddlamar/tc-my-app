@@ -1,3 +1,4 @@
+import React from "react";
 import {
   ActivityIndicator,
   ScrollView,
@@ -5,19 +6,19 @@ import {
   Text,
   View,
 } from "react-native";
-import React from "react";
-import Rating from "@/components/Rating";
+
 import Chip from "@/components/Chip";
+import Rating from "@/components/Rating";
+
 import { useGetCourse } from "@/hooks/useGetCourse";
 import EnrollButton from "@/components/EnrollButton";
 import CourseDetailsItems from "@/components/CourseDetailsItems";
+import { scaleFactor } from "@/constants/WindowDimensions";
 import {
-  baseWidth,
-  baseHeight,
-  windowHeight,
-  windowWidth,
-  scaleFactor,
-} from "@/constants/WindowDimensions";
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
+import { Colors } from "@/constants/Colors";
 
 const Overview = ({ route }: any) => {
   const { course, error, isLoading } = useGetCourse(route?.params?.id);
@@ -52,7 +53,7 @@ const Overview = ({ route }: any) => {
         <View style={{ alignItems: "center", justifyContent: "center" }}>
           <Text style={styles.description}>
             {course?.description}
-            <Text style={styles.readMoreText}>Read More</Text>
+            <Text style={styles.readMoreText}> Read More</Text>
           </Text>
         </View>
         <CourseDetailsItems />
@@ -89,49 +90,49 @@ export default Overview;
 
 const styles = StyleSheet.create({
   errorAndLoadingView: { justifyContent: "center", alignItems: "center" },
-  errorText: { fontSize: 18 },
+  errorText: { fontSize: moderateScale(18) },
   detailsView: {
     flex: 5,
-    paddingHorizontal: windowWidth > baseWidth ? 9 * scaleFactor : 9,
-    rowGap: windowHeight > baseHeight ? 12 * scaleFactor : 12,
-    paddingVertical: windowHeight > baseHeight ? 12 * scaleFactor : 12,
+    paddingHorizontal: moderateScale(9),
+    rowGap: moderateVerticalScale(12),
+    paddingVertical: moderateVerticalScale(12),
   },
   title: {
-    fontSize: windowWidth > baseWidth ? 20 * scaleFactor : 20,
-    fontWeight: 600,
-    lineHeight: windowHeight > baseHeight ? 25.2 * scaleFactor : 25.2,
+    fontSize: moderateScale(20),
+    fontWeight: "600",
+    lineHeight: moderateVerticalScale(25.2),
   },
   authorPriceView: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: windowHeight > baseHeight ? 9 * scaleFactor : 9,
-    marginBottom: windowHeight > baseHeight ? 3 * scaleFactor : 3,
+    marginTop: moderateVerticalScale(9),
+    marginBottom: moderateVerticalScale(3),
   },
   author: {
-    fontSize: windowWidth > baseWidth ? 12 * scaleFactor : 12,
-    fontWeight: 400,
-    lineHeight: windowHeight > baseHeight ? 15.12 * scaleFactor : 15.12,
+    fontSize: moderateScale(12),
+    fontWeight: "400",
+    lineHeight: moderateVerticalScale(15.12),
     color: "#B7B0B0",
   },
   price: {
-    fontSize: windowWidth > baseWidth ? 18 * scaleFactor : 18,
-    fontWeight: 600,
-    lineHeight: windowHeight > baseHeight ? 22.68 * scaleFactor : 22.68,
+    fontSize: moderateScale(18),
+    fontWeight: "600",
+    lineHeight: moderateVerticalScale(22.68),
   },
   description: {
-    fontSize: windowWidth > baseWidth ? 18 * scaleFactor : 14,
-    fontWeight: 300,
-    lineHeight: windowHeight > baseHeight ? 20.64 * scaleFactor : 17.64,
+    fontSize: moderateScale(15),
+    fontWeight: "300",
+    lineHeight: moderateVerticalScale(17.64, scaleFactor),
   },
-  readMoreText: { color: "#003096" },
+  readMoreText: { color: Colors.light.tint, marginLeft: moderateScale(15) },
   extraDetailsView: {
     backgroundColor: "#002A9621",
-    borderRadius: 20,
-    paddingVertical: windowHeight > baseHeight ? 18 * scaleFactor : 18,
-    paddingHorizontal: windowWidth > baseWidth ? 24 * scaleFactor : 24,
-    rowGap: windowHeight > baseHeight ? 9 * scaleFactor : 9,
-    width: windowWidth > baseWidth ? 330 * scaleFactor : 330,
+    borderRadius: moderateScale(20),
+    paddingVertical: moderateVerticalScale(18),
+    paddingHorizontal: moderateVerticalScale(24),
+    rowGap: moderateVerticalScale(9),
+    width: moderateScale(330),
     alignSelf: "center",
     flexDirection: "row",
     justifyContent: "space-between",
@@ -139,39 +140,39 @@ const styles = StyleSheet.create({
   extraDetailsInnerView: {
     flexDirection: "column",
     justifyContent: "flex-start",
-    rowGap: windowHeight > baseHeight ? 12 * scaleFactor : 12,
+    rowGap: moderateScale(12),
   },
   extraDetailsItemView: {
     flexDirection: "row",
     alignItems: "center",
-    columnGap: windowWidth > baseWidth ? 3 * scaleFactor : 3,
+    columnGap: moderateScale(3),
     justifyContent: "flex-start",
   },
   skillsView: {
     flex: 2,
-    rowGap: windowHeight > baseHeight ? 9 * scaleFactor : 9,
-    paddingHorizontal: windowWidth > baseWidth ? 9 * scaleFactor : 9,
+    rowGap: moderateVerticalScale(9),
+    paddingHorizontal: moderateScale(9),
   },
   skillsText: {
-    fontSize: windowWidth > baseWidth ? 20 * scaleFactor : 20,
-    fontWeight: 600,
-    lineHeight: windowHeight > baseHeight ? 25.2 * scaleFactor : 25.2,
-    padding: windowWidth > baseWidth ? 6 * scaleFactor : 6,
+    fontSize: moderateScale(20),
+    fontWeight: "600",
+    lineHeight: moderateVerticalScale(25.2),
+    padding: moderateScale(6),
   },
   skillChipsView: {
     flexDirection: "row",
     flexWrap: "wrap",
-    gap: windowWidth > baseWidth ? 6 * scaleFactor : 6,
+    gap: moderateScale(6),
   },
   skillChip: {
     width: "auto",
-    height: windowHeight > baseHeight ? 30 * scaleFactor : 30,
+    height: moderateVerticalScale(30),
     justifyContent: "center",
     alignItems: "center",
   },
   chipText: {
-    fontSize: windowWidth > baseWidth ? 14 * scaleFactor : 14,
-    fontWeight: 400,
-    lineHeight: windowHeight > baseHeight ? 17.64 * scaleFactor : 17.64,
+    fontSize: moderateScale(14),
+    fontWeight: "400",
+    lineHeight: moderateVerticalScale(17.64),
   },
 });

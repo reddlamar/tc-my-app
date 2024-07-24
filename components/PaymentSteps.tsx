@@ -1,23 +1,9 @@
-import {
-  GestureResponderEvent,
-  Pressable,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { FontAwesome } from "@expo/vector-icons";
 import Section from "./Section";
 import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
-
-type PaymentStepsProps = {
-  activeStep1: boolean;
-  activeStep2: boolean;
-  activeStep3: boolean;
-  onPressCircle1: (e: GestureResponderEvent) => void;
-  onPressCircle2: (e: GestureResponderEvent) => void;
-  onPressCircle3: (e: GestureResponderEvent) => void;
-};
+import { PaymentStepsProps } from "@/types/PropsTypes";
 
 const PaymentSteps = (props: PaymentStepsProps) => {
   const { activeStep1, activeStep2, activeStep3 } = props;

@@ -1,26 +1,19 @@
-import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+
 import { Link } from "expo-router";
-import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import { FontAwesome5 } from "@expo/vector-icons";
+
+import { scale, moderateScale, verticalScale } from "react-native-size-matters";
+
 import PrimaryButton from "./PrimaryButton";
 import LinkButton from "./LinkButton";
-import { Colors } from "@/constants/Colors";
-import { ThemedText } from "./ThemedText";
-import { baseWidth, windowWidth } from "@/constants/WindowDimensions";
 import Container from "./Container";
+import { ThemedText } from "./ThemedText";
 
-type RegisterProps = {
-  registerTitle?: string;
-  registerSubTitle: string;
-  registerText: string;
-  socialRegisterText: string;
-  orRegisterText: string;
-  registerQuestionText: string;
-  registerHereText: string;
-  children: React.ReactNode;
-  registerHereHref: string;
-};
+import { Colors } from "@/constants/Colors";
+import { RegisterProps } from "@/types/PropsTypes";
+import { baseWidth, windowWidth } from "@/constants/WindowDimensions";
 
 const Register = (props: RegisterProps) => {
   const {

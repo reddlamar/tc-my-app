@@ -1,7 +1,7 @@
 import { GestureResponderEvent, Pressable, StyleSheet } from "react-native";
 import React, { useCallback } from "react";
 import { scale, moderateScale, verticalScale } from "react-native-size-matters";
-import { CustomButtonProps } from "@/types/PropsType";
+import { CustomButtonProps } from "@/types/PropsTypes";
 
 const PrimaryButton = ({
   onPress,

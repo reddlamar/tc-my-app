@@ -5,11 +5,10 @@ import { Ionicons } from "@expo/vector-icons";
 import { useNavigation } from "expo-router";
 import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
 import {
-  baseWidth,
-  windowWidth,
-  horizontalScale,
-  verticalScale,
-} from "@/constants/WindowDimensions";
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
+import { windowWidth, baseWidth } from "@/constants/WindowDimensions";
 
 const CourseDetailsHero = () => {
   const navigation = useNavigation<NativeStackNavigatorProps>();
@@ -22,20 +21,20 @@ const CourseDetailsHero = () => {
       />
       <Ionicons
         name="arrow-back"
-        size={horizontalScale(24)}
+        size={moderateScale(24)}
         color="#fff"
         style={styles.backButton}
         onPress={() => navigation.navigate("(tabs)")}
       />
       <AntDesign
         name="play"
-        size={horizontalScale(45)}
+        size={moderateScale(45)}
         color="#fff"
         style={styles.playButton}
       />
       <Ionicons
         name="bookmark"
-        size={horizontalScale(24)}
+        size={moderateScale(24)}
         color="#fff"
         style={styles.bookMark}
       />
@@ -49,12 +48,12 @@ const styles = StyleSheet.create({
   videoView: {
     alignItems: "center",
     justifyContent: "flex-start",
-    height: verticalScale(250),
+    height: moderateVerticalScale(250),
     backgroundColor: "#000",
   },
   image: {
     width: "100%",
-    height: verticalScale(250),
+    height: moderateVerticalScale(250),
     aspectRatio: 1,
     resizeMode: windowWidth > baseWidth ? "cover" : "contain",
     position: "absolute",
@@ -62,8 +61,8 @@ const styles = StyleSheet.create({
   },
   backButton: {
     position: "absolute",
-    top: verticalScale(3),
-    left: horizontalScale(3),
+    top: moderateVerticalScale(3),
+    left: moderateScale(3),
   },
   playButton: {
     position: "absolute",
@@ -71,7 +70,7 @@ const styles = StyleSheet.create({
   },
   bookMark: {
     position: "absolute",
-    top: verticalScale(3),
-    right: horizontalScale(3),
+    top: moderateVerticalScale(3),
+    right: moderateScale(3),
   },
 });

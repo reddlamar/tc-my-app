@@ -1,6 +1,6 @@
 import { StyleSheet, View } from "react-native";
 import React from "react";
-import { SectionProps } from "@/types/PropsType";
+import { SectionProps } from "@/types/PropsTypes";
 import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
 
 const Section = ({ children, style, ...props }: SectionProps) => {

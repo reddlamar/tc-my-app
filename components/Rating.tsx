@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import React, { useCallback } from "react";
-import { RatingProps } from "@/types/PropsType";
+import { RatingProps } from "@/types/PropsTypes";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Colors } from "@/constants/Colors";
 import { moderateScale } from "react-native-size-matters";

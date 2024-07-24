@@ -1,19 +1,7 @@
-import {
-  StyleSheet,
-  Text,
-  TextInput,
-  type TextInputProps,
-  View,
-} from "react-native";
+import { StyleSheet, Text, TextInput, View } from "react-native";
 import React from "react";
 import { scale, moderateScale, verticalScale } from "react-native-size-matters";
-
-type InputProps = TextInputProps & {
-  label: string;
-  hidePassword?: boolean;
-  value: string;
-  onChangeText: (text: string) => void;
-};
+import { InputProps } from "@/types/PropsTypes";
 
 const Input = ({
   label,

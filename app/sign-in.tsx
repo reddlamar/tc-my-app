@@ -1,11 +1,18 @@
-import { StyleSheet, Text, View } from "react-native";
 import React, { useState } from "react";
+import { StyleSheet, Text, View } from "react-native";
+
 import { Link } from "expo-router";
-import { scale, moderateScale, verticalScale } from "react-native-size-matters";
+
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
+
 import Container from "@/components/Container";
 import Input from "@/components/Input";
-import Register from "@/components/Register";
 import PasswordInput from "@/components/PasswordInput";
+import Register from "@/components/Register";
+
 import { Colors } from "@/constants/Colors";
 
 const SignIn = () => {
@@ -79,13 +86,13 @@ const styles = StyleSheet.create({
   },
   eye: {
     position: "absolute",
-    right: scale(9),
-    top: verticalScale(29),
+    right: moderateScale(9),
+    top: moderateVerticalScale(29),
   },
   forgetPasswordText: {
     fontSize: moderateScale(12),
     fontWeight: 500,
-    lineHeight: scale(15.12),
+    lineHeight: moderateScale(15.12),
     color: "#8E8787",
   },
   socialSignInView: {
@@ -94,10 +101,10 @@ const styles = StyleSheet.create({
   horizontalRule: {
     borderBottomColor: "#000",
     borderBottomWidth: moderateScale(1),
-    height: verticalScale(1),
+    height: moderateVerticalScale(1),
     width: "50%",
   },
-  button: { width: scale(300) },
+  button: { width: moderateScale(300) },
   facebookButton: {
     flexDirection: "row",
     justifyContent: "center",
@@ -111,8 +118,8 @@ const styles = StyleSheet.create({
     marginLeft: moderateScale(9),
   },
   googleImage: {
-    width: scale(24),
-    height: verticalScale(24),
+    width: moderateScale(24),
+    height: moderateVerticalScale(24),
   },
   googleButton: {
     backgroundColor: "#fff",
@@ -127,7 +134,7 @@ const styles = StyleSheet.create({
   buttonText: {
     fontSize: moderateScale(20),
     fontWeight: "400",
-    lineHeight: verticalScale(25.2),
+    lineHeight: moderateVerticalScale(25.2),
     textAlign: "center",
     color: "#fff",
     width: "100%",

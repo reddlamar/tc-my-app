@@ -8,7 +8,7 @@ import PrimaryButton from "@/components/PrimaryButton";
 import Circle from "@/components/Circle";
 import { appInfo } from "@/database/AppInfo";
 import { AppInfo } from "@/types/AppInfoType";
-import { ButtonProps, ProgressCirclesProps } from "@/types/PropsType";
+import { ButtonProps, ProgressCirclesProps } from "@/types/PropsTypes";
 import LinkButton from "@/components/LinkButton";
 
 const SkipButton: React.FC<ButtonProps> = ({

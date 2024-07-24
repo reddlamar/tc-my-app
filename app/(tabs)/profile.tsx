@@ -1,14 +1,18 @@
-import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
+import { StyleSheet, Text, View, Image } from "react-native";
+
 import { Entypo } from "@expo/vector-icons";
+
 import { scale, moderateScale, verticalScale } from "react-native-size-matters";
+
+import Chip from "@/components/Chip";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
-import Chip from "@/components/Chip";
+
 import { scaleFactor } from "@/constants/WindowDimensions";
 
 const Profile = () => {
-  const editIconSize = moderateScale(24, 1.5);
+  const editIconSize = moderateScale(24, scaleFactor);
 
   return (
     <Container style={styles.container}>

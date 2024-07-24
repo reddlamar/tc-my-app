@@ -3,16 +3,7 @@ import React, { useCallback } from "react";
 import { Ionicons } from "@expo/vector-icons";
 import Input from "./Input";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
-
-type PasswordProps = {
-  password: string;
-  onChangePassword: (text: string) => void;
-  passwordLabel?: string;
-  confirmPassword?: string;
-  onChangeConfirmPassword?: (text: string) => void;
-  hidePassword: boolean;
-  onPressHidePassword: (hide: boolean) => void;
-};
+import { PasswordProps } from "@/types/PropsTypes";
 
 const PasswordInput = (props: PasswordProps) => {
   const {

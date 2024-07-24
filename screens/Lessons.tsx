@@ -4,7 +4,7 @@ import { Chapter } from "@/types/CourseType";
 import EnrollButton from "@/components/EnrollButton";
 import Lesson from "@/components/Lesson";
 import { CourseContext } from "@/context/CourseContext";
-import { verticalScale } from "@/constants/WindowDimensions";
+import { verticalScale } from "react-native-size-matters";
 
 const Lessons = () => {
   const { course } = useContext(CourseContext);

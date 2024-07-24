@@ -4,14 +4,7 @@ import * as Progress from "react-native-progress";
 import { scale, moderateScale, verticalScale } from "react-native-size-matters";
 import { Colors } from "@/constants/Colors";
 import Rating from "./Rating";
-
-type CardProps = {
-  imageSource: string;
-  title: string;
-  rating: number;
-  author: string;
-  progressPercentage: number;
-};
+import { CardProps } from "@/types/PropsTypes";
 
 const Card = (props: CardProps) => {
   const { imageSource, title, rating, author, progressPercentage } = props;

@@ -1,11 +1,16 @@
-import { Text, View, StyleSheet } from "react-native";
 import React from "react";
+import { Text, View, StyleSheet } from "react-native";
+
 import Container from "@/components/Container";
+import LinkButton from "@/components/LinkButton";
 import PasswordInput from "@/components/PasswordInput";
 import { ThemedText } from "@/components/ThemedText";
+
 import { usePassword } from "@/hooks/usePassword";
-import LinkButton from "@/components/LinkButton";
-import { horizontalScale, verticalScale } from "@/constants/WindowDimensions";
+import {
+  moderateScale,
+  moderateVerticalScale,
+} from "react-native-size-matters";
 
 const ResetPassword = () => {
   const {
@@ -47,15 +52,15 @@ const ResetPassword = () => {
 
 const styles = StyleSheet.create({
   container: {
-    rowGap: verticalScale(60),
+    rowGap: moderateVerticalScale(60),
     alignItems: "center",
-    marginTop: verticalScale(18),
+    marginTop: moderateVerticalScale(18),
   },
   text: {
     color: "#fff",
-    fontSize: horizontalScale(20),
+    fontSize: moderateScale(20),
     fontWeight: 600,
-    lineHeight: verticalScale(25.2),
+    lineHeight: moderateVerticalScale(25.2),
     textAlign: "center",
   },
 });

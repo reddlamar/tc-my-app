@@ -1,17 +1,19 @@
-import { StyleSheet, Text, View, Image, FlatList } from "react-native";
 import React, { useCallback, useContext } from "react";
+import { StyleSheet, Text, View, Image, FlatList } from "react-native";
 import * as Progress from "react-native-progress";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
-import Container from "../../components/Container";
+
+import Container from "@/components/Container";
 import Section from "@/components/Section";
+
 import { Colors } from "@/constants/Colors";
-import { Course } from "@/types/CourseType";
 import { scaleFactor } from "@/constants/WindowDimensions";
+
+import { Course } from "@/types/CourseType";
+
 import { CourseContext } from "@/context/CourseContext";
 
-type CourseProps = {
-  course: Course;
-};
+import { CourseProps } from "@/types/PropsTypes";
 
 const CourseItem = ({ course }: CourseProps) => {
   return (

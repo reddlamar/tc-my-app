@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
     lineHeight: moderateScale(17.64),
     textAlign: "center",
   },
-  sectionInnerView: { flexDirection: "row", columnGap: 33 },
+  sectionInnerView: { flexDirection: "row", columnGap: moderateScale(33) },
   description: {
     fontSize: moderateScale(10),
     fontWeight: "300",
