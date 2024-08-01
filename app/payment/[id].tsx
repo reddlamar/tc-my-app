@@ -7,6 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import React, { useCallback, useState } from "react";
+import { useLocalSearchParams } from "expo-router";
 import Container from "@/components/Container";
 import PrimaryButton from "@/components/PrimaryButton";
 import PaymentStep1 from "@/screens/PaymentStep1";
@@ -17,6 +18,8 @@ import {
   moderateVerticalScale,
 } from "react-native-size-matters";
 import { windowHeight, windowWidth } from "@/constants/WindowDimensions";
+import { useAppSelector } from "@/hooks/useRedux";
+import { selectCourseByID } from "@/features/redux/courses/coursesSlice";
 
 const PaymentStep3 = () => {
   return (
@@ -24,13 +27,20 @@ const PaymentStep3 = () => {
       <Text style={styles.transactionCompleteText}>Transaction Complete!</Text>
       <Image
         style={styles.image}
-        source={require("../assets/images/transaction-complete.png")}
+        source={require("@/assets/images/transaction-complete.png")}
       />
     </View>
   );
 };
 
 const Payment = () => {
+  const { id } = useLocalSearchParams();
+  const course = useAppSelector((state) => {
+    if (typeof id === "string") {
+      return selectCourseByID(state, id);
+    }
+    return null;
+  });
   const [activeCircle1, setActiveCircle1] = useState<boolean>(true);
   const [activeCircle2, setActiveCircle2] = useState<boolean>(false);
   const [activeCircle3, setActiveCircle3] = useState<boolean>(false);
@@ -96,7 +106,7 @@ const Payment = () => {
           onPressCircle2={handlePressCircle2}
           onPressCircle3={handlePressCircle3}
         />
-        {activeCircle1 && <PaymentStep1 />}
+        {activeCircle1 && <PaymentStep1 course={course} />}
         {activeCircle2 && <PaymentStep2 />}
         {activeCircle3 && <PaymentStep3 />}
         <PrimaryButton

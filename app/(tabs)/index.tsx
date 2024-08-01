@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useEffect } from "react";
 import { FlatList, StyleSheet, Text, View } from "react-native";
 import { Link } from "expo-router";
 import { Octicons } from "@expo/vector-icons";
@@ -15,7 +15,7 @@ import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 import { useGetCourses } from "@/hooks/useGetCourses";
 
 const HomeScreen = () => {
-  const { courses, error, isLoading } = useGetCourses();
+  const { courses, error, status } = useGetCourses();
 
   const renderItem = useCallback((item: Course, index: number) => {
     return (
@@ -38,7 +38,7 @@ const HomeScreen = () => {
     );
   }, []);
 
-  if (isLoading) {
+  if (status === "loading") {
     return <LoadingIndicator text="Getting Courses..." />;
   }
 

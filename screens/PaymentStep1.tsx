@@ -1,15 +1,15 @@
 import { StyleSheet, Text, View } from "react-native";
-import React, { useContext } from "react";
+import React from "react";
 import CourseDetailsItems from "@/components/CourseDetailsItems";
 import Rating from "@/components/Rating";
-import { CourseContext } from "@/context/CourseContext";
 import {
   moderateScale,
   moderateVerticalScale,
 } from "react-native-size-matters";
 
-const PaymentStep1 = () => {
-  const { course } = useContext(CourseContext);
+const PaymentStep1 = ({ course }: any) => {
+  console.log("Course", course);
+
   return (
     <View style={styles.container}>
       <View style={styles.topView}>

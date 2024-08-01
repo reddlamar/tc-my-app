@@ -7,7 +7,7 @@ import Container from "@/components/Container";
 import IntroScreen from "@/screens/Intro";
 
 import { populate } from "@/scripts/populate-courses";
-import { getCourses } from "@/features/firebase/firestore/Courses";
+import { getCoursesCollection } from "@/features/firebase/firestore/Courses";
 
 export default function MainIntroScreen() {
   const addDocuments = async () => {
@@ -21,7 +21,7 @@ export default function MainIntroScreen() {
   useEffect(() => {
     const populateCourses = async () => {
       try {
-        const docs = await getCourses();
+        const docs = await getCoursesCollection();
         if (docs?.length === 0) {
           addDocuments();
         }

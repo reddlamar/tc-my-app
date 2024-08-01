@@ -6,11 +6,14 @@ import CourseDetailsHero from "@/components/CourseDetailsHero";
 import Overview from "@/screens/Overview";
 import Lessons from "@/screens/Lessons";
 import Reviews from "@/screens/Reviews";
+import { useGetCourse } from "@/hooks/useGetCourse";
 
 const Tab = createMaterialTopTabNavigator();
 
 const CourseDetails = () => {
   const { id } = useLocalSearchParams();
+
+  const course = useGetCourse(typeof id === "string" ? id : undefined);
 
   return (
     <Container>
@@ -19,7 +22,7 @@ const CourseDetails = () => {
         <Tab.Screen
           name="course-overview"
           component={Overview}
-          initialParams={{ id }}
+          initialParams={{ course }}
           options={{
             tabBarLabel: "Overview",
           }}
@@ -27,7 +30,7 @@ const CourseDetails = () => {
         <Tab.Screen
           name="lessons"
           component={Lessons}
-          initialParams={{ id }}
+          initialParams={{ course }}
           options={{
             tabBarLabel: "Lessons",
           }}
@@ -35,7 +38,7 @@ const CourseDetails = () => {
         <Tab.Screen
           name="reviews"
           component={Reviews}
-          initialParams={{ id }}
+          initialParams={{ course }}
           options={{ tabBarLabel: "Reviews" }}
         />
       </Tab.Navigator>

@@ -7,6 +7,9 @@ import * as SplashScreen from "expo-splash-screen";
 import "react-native-reanimated";
 import { moderateScale } from "react-native-size-matters";
 import { Octicons } from "@expo/vector-icons";
+import { Provider } from "react-redux";
+
+import { store } from "@/features/redux/store";
 
 import { CourseProvider } from "@/context/CourseContext";
 
@@ -66,73 +69,75 @@ export default function RootLayout() {
   }
 
   return (
-    <CourseProvider>
-      <ThemeProvider value={DefaultTheme}>
-        <SafeAreaView style={styles.view}>
-          <Stack initialRouteName="index">
-            <Stack.Screen
-              name="index"
-              options={{
-                headerShown: false,
-                headerBackTitleVisible: false,
-              }}
-            />
-            <Stack.Screen
-              name="sign-in"
-              options={{
-                header: () => <Header />,
-              }}
-            />
-            <Stack.Screen
-              name="sign-up"
-              options={{ header: () => <Header /> }}
-            />
-            <Stack.Screen
-              name="reset-password"
-              options={{ headerBackTitleVisible: false, headerTitle: "" }}
-            />
-            <Stack.Screen
-              name="reset-password-success"
-              options={{ headerBackTitleVisible: false, headerTitle: "" }}
-            />
-            <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-            <Stack.Screen
-              name="details/[id]"
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="payment"
-              options={{ header: () => <Header /> }}
-            />
-            <Stack.Screen
-              name="notifications"
-              options={{
-                header: () => (
-                  <RootHeader
-                    title="Notifications"
-                    gearIconColor="#DCDEE0"
-                    bellIconColor="#06367E"
-                  />
-                ),
-              }}
-            />
-            <Stack.Screen
-              name="settings"
-              options={{
-                header: () => (
-                  <RootHeader
-                    title="Settings"
-                    gearIconColor="#06367E"
-                    bellIconColor="#DCDEE0"
-                  />
-                ),
-              }}
-            />
-            <Stack.Screen name="+not-found" />
-          </Stack>
-        </SafeAreaView>
-      </ThemeProvider>
-    </CourseProvider>
+    <Provider store={store}>
+      <CourseProvider>
+        <ThemeProvider value={DefaultTheme}>
+          <SafeAreaView style={styles.view}>
+            <Stack initialRouteName="index">
+              <Stack.Screen
+                name="index"
+                options={{
+                  headerShown: false,
+                  headerBackTitleVisible: false,
+                }}
+              />
+              <Stack.Screen
+                name="sign-in"
+                options={{
+                  header: () => <Header />,
+                }}
+              />
+              <Stack.Screen
+                name="sign-up"
+                options={{ header: () => <Header /> }}
+              />
+              <Stack.Screen
+                name="reset-password"
+                options={{ headerBackTitleVisible: false, headerTitle: "" }}
+              />
+              <Stack.Screen
+                name="reset-password-success"
+                options={{ headerBackTitleVisible: false, headerTitle: "" }}
+              />
+              <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+              <Stack.Screen
+                name="details/[id]"
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="payment/[id]"
+                options={{ header: () => <Header /> }}
+              />
+              <Stack.Screen
+                name="notifications"
+                options={{
+                  header: () => (
+                    <RootHeader
+                      title="Notifications"
+                      gearIconColor="#DCDEE0"
+                      bellIconColor="#06367E"
+                    />
+                  ),
+                }}
+              />
+              <Stack.Screen
+                name="settings"
+                options={{
+                  header: () => (
+                    <RootHeader
+                      title="Settings"
+                      gearIconColor="#06367E"
+                      bellIconColor="#DCDEE0"
+                    />
+                  ),
+                }}
+              />
+              <Stack.Screen name="+not-found" />
+            </Stack>
+          </SafeAreaView>
+        </ThemeProvider>
+      </CourseProvider>
+    </Provider>
   );
 }
 

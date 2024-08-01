@@ -1,24 +1,17 @@
 import { StyleSheet, Text } from "react-native";
 import React from "react";
-import PrimaryButton from "./PrimaryButton";
-import { useNavigation } from "expo-router";
-import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
+
+import LinkButton from "./LinkButton";
 import {
   moderateScale,
   moderateVerticalScale,
 } from "react-native-size-matters";
 
-const EnrollButton = () => {
-  const navigation = useNavigation<NativeStackNavigatorProps>();
-
-  const handlePress = () => {
-    navigation.navigate("payment");
-  };
-
+const EnrollButton = ({ course }: any) => {
   return (
-    <PrimaryButton style={styles.buttonStyle} onPress={handlePress}>
+    <LinkButton href={`/payment/${course.id}`} style={styles.buttonStyle}>
       <Text style={styles.buttonText}>Enroll Now</Text>
-    </PrimaryButton>
+    </LinkButton>
   );
 };
 

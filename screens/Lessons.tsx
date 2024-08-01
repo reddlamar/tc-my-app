@@ -1,13 +1,12 @@
 import { FlatList, StyleSheet, View } from "react-native";
-import React, { useCallback, useContext } from "react";
+import React, { useCallback } from "react";
 import { Chapter } from "@/types/CourseType";
 import EnrollButton from "@/components/EnrollButton";
 import Lesson from "@/components/Lesson";
-import { CourseContext } from "@/context/CourseContext";
 import { verticalScale } from "react-native-size-matters";
 
-const Lessons = () => {
-  const { course } = useContext(CourseContext);
+const Lessons = ({ route }: any) => {
+  const course = route?.params?.course;
 
   const renderItem = useCallback(
     (item: Chapter) => <Lesson chapter={item} />,
@@ -22,7 +21,7 @@ const Lessons = () => {
         renderItem={({ item }) => renderItem(item)}
         contentContainerStyle={styles.flatList}
       />
-      {course && <EnrollButton />}
+      {course && <EnrollButton course={course} />}
     </View>
   );
 };

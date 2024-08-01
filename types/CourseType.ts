@@ -1,5 +1,5 @@
 export type Course = {
-  id: string;
+  id: string | undefined;
   image: string;
   title: string;
   rating: number;

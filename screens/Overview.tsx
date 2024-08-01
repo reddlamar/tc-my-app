@@ -1,16 +1,9 @@
 import React from "react";
-import {
-  ActivityIndicator,
-  ScrollView,
-  StyleSheet,
-  Text,
-  View,
-} from "react-native";
+import { ScrollView, StyleSheet, Text, View } from "react-native";
 
 import Chip from "@/components/Chip";
 import Rating from "@/components/Rating";
 
-import { useGetCourse } from "@/hooks/useGetCourse";
 import EnrollButton from "@/components/EnrollButton";
 import CourseDetailsItems from "@/components/CourseDetailsItems";
 import { scaleFactor } from "@/constants/WindowDimensions";
@@ -21,68 +14,54 @@ import {
 import { Colors } from "@/constants/Colors";
 
 const Overview = ({ route }: any) => {
-  const { course, error, isLoading } = useGetCourse(route?.params?.id);
-
-  if (error) {
-    return (
-      <View style={styles.errorAndLoadingView}>
-        <Text style={styles.errorText}>{error}</Text>
-      </View>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <View style={styles.errorAndLoadingView}>
-        <ActivityIndicator />
-      </View>
-    );
-  }
+  const course = route?.params?.course;
 
   return (
-    <ScrollView>
-      <View style={styles.detailsView}>
-        <View>
-          <Text style={styles.title}>{course?.title}</Text>
-          <View style={styles.authorPriceView}>
-            <Text style={styles.author}>{course?.author}</Text>
-            <Text style={styles.price}>${course?.price}</Text>
+    <>
+      <ScrollView>
+        <View style={styles.detailsView}>
+          <View>
+            <Text style={styles.title}>{course?.title}</Text>
+            <View style={styles.authorPriceView}>
+              <Text style={styles.author}>{course?.author}</Text>
+              <Text style={styles.price}>${course?.price}</Text>
+            </View>
+            <Rating rating={course?.rating ?? 0} />
           </View>
-          <Rating rating={course?.rating ?? 0} />
+          <View style={{ alignItems: "center", justifyContent: "center" }}>
+            <Text style={styles.description}>
+              {course?.description}
+              <Text style={styles.readMoreText}> Read More</Text>
+            </Text>
+          </View>
+          <CourseDetailsItems />
         </View>
-        <View style={{ alignItems: "center", justifyContent: "center" }}>
-          <Text style={styles.description}>
-            {course?.description}
-            <Text style={styles.readMoreText}> Read More</Text>
-          </Text>
+        <View style={styles.skillsView}>
+          <Text style={styles.skillsText}>Skills</Text>
+          <View style={styles.skillChipsView}>
+            <Chip style={styles.skillChip}>
+              <Text style={styles.chipText}>Adobe</Text>
+            </Chip>
+            <Chip style={styles.skillChip}>
+              <Text style={styles.chipText}>Adobe Photo Shop</Text>
+            </Chip>
+            <Chip style={styles.skillChip}>
+              <Text style={styles.chipText}>Logo</Text>
+            </Chip>
+            <Chip style={styles.skillChip}>
+              <Text style={styles.chipText}>Designing</Text>
+            </Chip>
+            <Chip style={styles.skillChip}>
+              <Text style={styles.chipText}>Poster Design</Text>
+            </Chip>
+            <Chip style={styles.skillChip}>
+              <Text style={styles.chipText}>Figma</Text>
+            </Chip>
+          </View>
         </View>
-        <CourseDetailsItems />
-      </View>
-      <View style={styles.skillsView}>
-        <Text style={styles.skillsText}>Skills</Text>
-        <View style={styles.skillChipsView}>
-          <Chip style={styles.skillChip}>
-            <Text style={styles.chipText}>Adobe</Text>
-          </Chip>
-          <Chip style={styles.skillChip}>
-            <Text style={styles.chipText}>Adobe Photo Shop</Text>
-          </Chip>
-          <Chip style={styles.skillChip}>
-            <Text style={styles.chipText}>Logo</Text>
-          </Chip>
-          <Chip style={styles.skillChip}>
-            <Text style={styles.chipText}>Designing</Text>
-          </Chip>
-          <Chip style={styles.skillChip}>
-            <Text style={styles.chipText}>Poster Design</Text>
-          </Chip>
-          <Chip style={styles.skillChip}>
-            <Text style={styles.chipText}>Figma</Text>
-          </Chip>
-        </View>
-      </View>
-      <EnrollButton />
-    </ScrollView>
+      </ScrollView>
+      <EnrollButton course={course} />
+    </>
   );
 };
 

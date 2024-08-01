@@ -7,12 +7,15 @@ import Header from "@/components/Header";
 import { Button, SafeAreaView, StyleSheet } from "react-native";
 import { moderateScale } from "react-native-size-matters";
 import { NativeStackNavigatorProps } from "react-native-screens/lib/typescript/native-stack/types";
+import { store } from "@/features/redux/store";
+import { Provider } from "react-redux";
 
 export default function TabLayout() {
   const iconSize = moderateScale(15);
   const navigation = useNavigation<NativeStackNavigatorProps>();
 
   return (
+    // <Provider store={store}>
     <SafeAreaView style={styles.view}>
       <Tabs
         screenOptions={{
@@ -87,6 +90,7 @@ export default function TabLayout() {
         />
       </Tabs>
     </SafeAreaView>
+    // </Provider>
   );
 }
 
