@@ -1,4 +1,4 @@
-import React, { useCallback, useContext } from "react";
+import React, { useCallback } from "react";
 import { StyleSheet, Text, View, Image, FlatList } from "react-native";
 import * as Progress from "react-native-progress";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
@@ -11,9 +11,9 @@ import { scaleFactor } from "@/constants/WindowDimensions";
 
 import { Course } from "@/types/CourseType";
 
-import { CourseContext } from "@/context/CourseContext";
-
 import { CourseProps } from "@/types/PropsTypes";
+import { useAppSelector } from "@/hooks/useRedux";
+import { selectCourses } from "@/features/redux/courses/coursesSlice";
 
 const CourseItem = ({ course }: CourseProps) => {
   return (
@@ -38,7 +38,7 @@ const CourseItem = ({ course }: CourseProps) => {
 };
 
 const MyCourses = () => {
-  const { courses } = useContext(CourseContext);
+  const courses = useAppSelector(selectCourses);
 
   const renderItem = useCallback(
     (item: Course) => <CourseItem course={item} />,
