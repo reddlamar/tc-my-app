@@ -33,6 +33,14 @@ const Reviews = ({ route }: any) => {
     );
   }, []);
 
+  if (!course?.reviews.length) {
+    return (
+      <Container>
+        <Text>No reviews for {course?.title}</Text>
+      </Container>
+    );
+  }
+
   return (
     <Container>
       <FlatList

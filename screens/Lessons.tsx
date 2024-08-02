@@ -1,4 +1,4 @@
-import { FlatList, StyleSheet, View } from "react-native";
+import { FlatList, StyleSheet, Text, View } from "react-native";
 import React, { useCallback } from "react";
 import { Chapter } from "@/types/CourseType";
 import EnrollButton from "@/components/EnrollButton";
@@ -12,6 +12,14 @@ const Lessons = ({ route }: any) => {
     (item: Chapter) => <Lesson chapter={item} />,
     []
   );
+
+  if (!course.lessons.length) {
+    return (
+      <View style={styles.view}>
+        <Text>No Lessons Yet</Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.view}>

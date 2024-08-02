@@ -9,6 +9,7 @@ import {
 import { AppInfo } from "./AppInfoType";
 import { Link } from "expo-router";
 import { Chapter, Course } from "./CourseType";
+import { FieldValue, FieldValues, SubmitHandler } from "react-hook-form";
 
 export type ButtonProps = {
   screenIndex: React.MutableRefObject<number>;
@@ -113,16 +114,24 @@ export type RatingProps = {
   rating: number;
 };
 
+type Input = {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
+
 export type RegisterProps = {
-  registerTitle?: string;
+  children: React.ReactNode;
+  onSubmit: <Type>(data?: Type) => void;
+  orRegisterText: string;
+  registerHereHref: string;
+  registerHereText: string;
+  registerQuestionText: string;
   registerSubTitle: string;
   registerText: string;
+  registerTitle?: string;
   socialRegisterText: string;
-  orRegisterText: string;
-  registerQuestionText: string;
-  registerHereText: string;
-  children: React.ReactNode;
-  registerHereHref: string;
 };
 
 export type SectionProps = React.ComponentProps<typeof View> & {

@@ -16,7 +16,7 @@ const coursesRef = collection(database, "courses");
 export async function addCourse(course: Course) {
   let success = true;
   try {
-    const docRef = await addDoc(collection(database, "courses"), course);
+    const docRef = await addDoc(coursesRef, course);
     console.log("Document successfully written with ID: ", docRef.id);
   } catch (e) {
     console.log("Error populating courses: ", e);

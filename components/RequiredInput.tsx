@@ -2,9 +2,10 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import Input from "./Input";
 import { InputProps } from "@/types/PropsTypes";
+import { FieldError } from "react-hook-form";
 
 type RequiredInputProps = InputProps & {
-  isValid: boolean;
+  isValid: FieldError | undefined;
 };
 
 const RequiredInput = ({
@@ -12,6 +13,7 @@ const RequiredInput = ({
   value,
   onChangeText,
   isValid,
+  ...rest
 }: RequiredInputProps) => {
   return (
     <View>
@@ -20,8 +22,9 @@ const RequiredInput = ({
         value={value}
         onChangeText={onChangeText}
         autoCapitalize="none"
+        {...rest}
       />
-      {!isValid && (
+      {isValid && (
         <Text style={{ color: "tomato", fontSize: 12 }}>Required Field</Text>
       )}
     </View>

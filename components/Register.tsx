@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, Text, View, Image } from "react-native";
+import { StyleSheet, Text, View, Image, Button } from "react-native";
 
 import { Link } from "expo-router";
 import { FontAwesome5 } from "@expo/vector-icons";
@@ -26,6 +26,7 @@ const Register = (props: RegisterProps) => {
     registerHereText,
     children,
     registerHereHref,
+    onSubmit,
   } = props;
   return (
     <Container style={styles.view}>
@@ -46,9 +47,12 @@ const Register = (props: RegisterProps) => {
       </View>
       {children}
       <View>
-        <LinkButton style={styles.button} href={"/(tabs)"}>
+        <PrimaryButton style={styles.button} onPress={onSubmit}>
           <Text style={styles.buttonText}>{registerText}</Text>
-        </LinkButton>
+        </PrimaryButton>
+        {/* <LinkButton style={styles.button} href={"/(tabs)"}>
+          <Text style={styles.buttonText}>{registerText}</Text>
+        </LinkButton> */}
       </View>
       <View style={styles.dividerView}>
         <View style={styles.horizontalRule}></View>
