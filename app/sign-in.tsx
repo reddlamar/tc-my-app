@@ -31,31 +31,31 @@ const SignIn = () => {
         registerQuestionText="Didn't"
         registerHereText="Sign up"
         registerHereHref="/sign-up"
-        children={
-          <View style={styles.inputView}>
-            <Input
-              label="Email Here"
-              value={email}
-              onChangeText={setEmail}
-              autoCapitalize="none"
-            />
-            <PasswordInput
-              password={password}
-              onChangePassword={setPassword}
-              hidePassword={hidePassword}
-              onPressHidePassword={setHidePassword}
-            />
-            <Link
-              href="/reset-password"
-              style={{
-                alignSelf: "flex-end",
-              }}
-            >
-              <Text style={styles.forgetPasswordText}>Forget Password?</Text>
-            </Link>
-          </View>
-        }
-      />
+        onSubmit={() => null}
+      >
+        <View style={styles.inputView}>
+          <Input
+            label="Email Here"
+            value={email}
+            onChangeText={setEmail}
+            autoCapitalize="none"
+          />
+          <PasswordInput
+            password={password}
+            onChangePassword={setPassword}
+            hidePassword={hidePassword}
+            onPressHidePassword={setHidePassword}
+          />
+          <Link
+            href="/reset-password"
+            style={{
+              alignSelf: "flex-end",
+            }}
+          >
+            <Text style={styles.forgetPasswordText}>Forget Password?</Text>
+          </Link>
+        </View>
+      </Register>
     </Container>
   );
 };
