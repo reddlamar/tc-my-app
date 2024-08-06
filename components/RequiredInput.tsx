@@ -5,14 +5,27 @@ import { InputProps } from "@/types/PropsTypes";
 import { FieldError } from "react-hook-form";
 
 type RequiredInputProps = InputProps & {
-  isValid: FieldError | undefined;
+  isInvalid: FieldError | undefined;
+};
+
+const getErrorMessage = (invalidType: string) => {
+  switch (invalidType) {
+    case "pattern":
+    case "minLength":
+    case "validate":
+      return "Invalid Field";
+    case "required":
+      return "Required Field";
+    default:
+      return "Field Error";
+  }
 };
 
 const RequiredInput = ({
   label,
   value,
   onChangeText,
-  isValid,
+  isInvalid,
   ...rest
 }: RequiredInputProps) => {
   return (
@@ -24,8 +37,8 @@ const RequiredInput = ({
         autoCapitalize="none"
         {...rest}
       />
-      {isValid && (
-        <Text style={{ color: "tomato", fontSize: 12 }}>Required Field</Text>
+      {isInvalid && (
+        <Text style={styles.errorText}>{getErrorMessage(isInvalid.type)}</Text>
       )}
     </View>
   );
@@ -33,4 +46,6 @@ const RequiredInput = ({
 
 export default RequiredInput;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  errorText: { color: "tomato", fontSize: 12 },
+});

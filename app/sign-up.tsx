@@ -8,6 +8,7 @@ import { useSignUpForm } from "@/hooks/useSignUpForm";
 
 import Register from "@/components/Register";
 import RequiredInput from "@/components/RequiredInput";
+import { emailRegEx, fullNameRegEx } from "@/constants/Regex";
 
 const SignUp = () => {
   const { control, handleSubmit, errors } = useSignUpForm();
@@ -35,13 +36,14 @@ const SignUp = () => {
             control={control}
             rules={{
               required: true,
+              pattern: fullNameRegEx,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <RequiredInput
                 label="Full Name"
                 value={value}
-                autoCapitalize="none"
-                isValid={errors.fullName}
+                autoCapitalize="words"
+                isInvalid={errors.fullName}
                 onBlur={onBlur}
                 onChangeText={onChange}
               />
@@ -52,6 +54,7 @@ const SignUp = () => {
             control={control}
             rules={{
               required: true,
+              pattern: emailRegEx,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <RequiredInput
@@ -60,7 +63,7 @@ const SignUp = () => {
                 onChangeText={onChange}
                 autoCapitalize="none"
                 value={value}
-                isValid={errors.email}
+                isInvalid={errors.email}
               />
             )}
             name="email"
@@ -69,6 +72,7 @@ const SignUp = () => {
             control={control}
             rules={{
               required: true,
+              minLength: 6,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <RequiredInput
@@ -77,7 +81,7 @@ const SignUp = () => {
                 onChangeText={onChange}
                 autoCapitalize="none"
                 value={value}
-                isValid={errors.password}
+                isInvalid={errors.password}
               />
             )}
             name="password"
@@ -86,6 +90,7 @@ const SignUp = () => {
             control={control}
             rules={{
               required: true,
+              validate: (value, formValues) => value === formValues.password,
             }}
             render={({ field: { onChange, onBlur, value } }) => (
               <RequiredInput
@@ -94,7 +99,7 @@ const SignUp = () => {
                 onChangeText={onChange}
                 autoCapitalize="none"
                 value={value}
-                isValid={errors.confirmPassword}
+                isInvalid={errors.confirmPassword}
               />
             )}
             name="confirmPassword"
